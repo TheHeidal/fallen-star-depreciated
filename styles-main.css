@@ -1,5 +1,8 @@
 /* All content is designed by Jay Dragon and based off the protype play materials of 7 Part Pact.
  This project is not associated with Jay Dragon or Possum Creek games. */
+.sticky-header-container {
+  background-color: gainsboro;
+}
 
 .top-navigation .container {
   display: flex;
