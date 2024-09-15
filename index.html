@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Warlock</title>
+    <link rel="stylesheet" href="styles-main.css" />
+    <link rel="stylesheet" href="styles-warlock.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre">
+
+</head>
+
+<body>
+    <div class="sticky-header-container">
+        <header class="top-navigation">
+            <div class="container">
+                <div class="top-navigation-wrap">
+                    <a class="orrery" href="/orrery/">Orrery</a>
+                </div>
+                <nav class="wizard-nav" aria-label="Wizards">
+                    <ol class="wizard-menu">
+                        <li><a href="/necromancer/">Necromancer</a></li>
+                        <li><a href="/hierophant/">Hierophant</a></li>
+                        <li><a href="/warlock/">Warlock</a></li>
+                        <li><a href="/mariner/">Mariner</a></li>
+                        <li><a href="/faustian/">Faustian</a></li>
+                        <li><a href="/sorcerer/">Sorcerer</a></li>
+                        <li><a href="/anchorite/">Anchorite</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+        <div class="wizard-tabs-container">
+            <nav class="tabs-container" aria-label="Tabs">
+                <ul>
+                    <li><a class="tab " href="/warlock/summary/">Summary</a></li>
+                    <li><a class="tab " href="/warlock/board/">Board</a></li>
+                    <li><a class="tab " href="/warlock/sheet/">Sheet</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+    <div id="warlock-game-wrapper">
+        <main id="warlock-board">
+            <div id="harlot" class="standing risky">
+                <h3>Harlot</h3>
+            </div>
+            <div id="disasterous" class="standing outskirt">
+                <h3>Disasterous</h3>
+            </div>
+            <div id="gossip" class="standing outskirt">
+                <h3>Gossip</h3>
+            </div>
+            <div id="traitor" class="standing risky">
+                <h3>Traitor</h3>
+            </div>
+            <div id="seductive" class="standing outskirt">
+                <h3>Seductive</h3>
+            </div>
+            <div id="courtesan" class="standing">
+                <h3>Courtesan</h3>
+            </div>
+            <div id="love" class="standing inner-circle">
+                <h3>Love</h3>
+            </div>
+            <div id="confidant" class="standing">
+                <h3>Confidant</h3>
+            </div>
+            <div id="liar" class="standing outskirt">
+                <h3>Liar</h3>
+            </div>
+            <div id="friend" class="standing inner-circle">
+                <h3>Friend</h3>
+            </div>
+            <div id="king" class="standing king">
+                <h3>King</h3>
+            </div>
+            <div id="guide" class="standing inner-circle">
+                <h3>Guide</h3>
+            </div>
+            <div id="fool" class="standing outskirt">
+                <h3>Fool</h3>
+            </div>
+            <div id="hound" class="standing">
+                <h3>Hound</h3>
+            </div>
+            <div id="heir" class="standing inner-circle">
+                <h3>Heir</h3>
+            </div>
+            <div id="ward" class="standing">
+                <h3>Ward</h3>
+            </div>
+            <div id="cowardly" class="standing outskirt">
+                <h3>Cowardly</h3>
+            </div>
+            <div id="worthless" class="standing risky">
+                <h3>Worthless</h3>
+            </div>
+            <div id="liability" class="standing outskirt">
+                <h3>Liability</h3>
+            </div>
+            <div id="irritating" class="standing outskirt">
+                <h3>Irritating</h3>
+            </div>
+            <div id="disgrace" class="standing risky">
+                <h3>Disgrace</h3>
+            </div>
+        </main>
+        <aside id="information">
+            <div id="king-and-laws">
+                <form></form>
+                <section class="rules" id="king-div">
+                    <h3>The King of Isha</h2>
+                        <p>Name: Nestor VI</p>
+                        <p>Sun Sign: Scorpio: Brilliant Artist</p>
+                        <p>Moon Sign:</p>
+                        <p>Rising Sign:</p>
+                </section>
+                <section class="rules" id="laws-div">
+                    <h3>The Laws of the Court</h2>
+                </section>
+            </div>
+            <section id="court-summary" class="rules">
+                <h3>Summary of the Court</h3>
+                <p>
+                    Each Servant occupies a Standing within the King's Court. Each Standing only has room for one
+                    Servant. If someone is moved forward, then someone else is pushed further away from the King.</p>
+                <p>
+                    The four Standings closest to the King (Love, Friend, Guide, and Heir) are his Inner Circle.</p>
+                <p>
+                    A Servant's Agenda is determined by their Authority. Each month, a member of the King's Inner
+                    Circle will achieve their Agenda, changing Isha in the process.
+                </p>
+                <p>
+                    If you're in the Inner Circle, you may use your Agenda as well, to Impact Isha. If you're in the
+                    King's Inner Circle, you must Spend Time each month to maintain your Standing.
+                </p>
+                <p>
+                    You may Spend Time to move any Servant to an adjacent Standing, or if someone is at the Risky
+                    Standings (Harlot, Traitor, Worthless, Disgrace), to remove them from the Court.
+                </p>
+                <p>
+                    You can also Spend Time to spy on Servants, and learn how to change their Allegiance or Authority.
+                </p>
+                <p>Each month, consult the Stars in alignment with the King's Sun, Moon, and Rising signs.</p>
+                <ul>
+                    <li><span class="mercury"><b>Mercury</b>:</span> Who the King pushes forward or pushes away.</li>
+                    <li><span class="venus"><b>Venus</b>:</span> Which member of the Inner Circle's Agenda occurs.</li>
+                    <li><span class="mars"><b>Mars</b>:</span> The King's mood, lust, and spite.</li>
+                    <li><span class="jupiter"><b>Jupiter</b>:</span> Who joins the Court and what Allegiances hold sway.
+                    </li>
+                    <li><span class="saturn"><b>Saturn</b>:</span> The state of violence within the Court.</li>
+                    <li><span class="sun"><b>The Sun</b>:</span> The King's regal performance.</li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+</body>
+
+</html>
+
+<!-- harlot
+disasterous
+gossip
+traitor
+seductive
+courtesan
+love
+confidant
+liar
+friend
+king
+guide
+fool
+hound
+heir
+ward
+cowardly
+worthless
+liability
+irritating
+disgrace -->

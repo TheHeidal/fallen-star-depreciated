@@ -1,0 +1,157 @@
+#warlock-game-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: -5px;
+}
+
+main {
+  margin: 5px;
+}
+aside {
+  margin: 5px;
+}
+
+#information {
+  flex: 2 500px;
+}
+
+.rules {
+  outline: solid red;
+  padding: 10px;
+}
+
+#king-and-laws {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 -5px 10px;
+}
+
+#king-and-laws > .rules {
+  flex: 1;
+  margin: 0 5px;
+}
+
+h3 {
+  font-size: 12pt;
+  font-family: "Alegreya", "Times New Roman", Times, serif;
+  margin-bottom: 0.3em;
+  margin-top: 0.1em;
+}
+
+p {
+  margin: 0.1em 0px;
+  font-family: "Alegreya";
+  font-size: medium;
+}
+
+#warlock-board {
+  flex: 3 500px;
+  min-height: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 15px;
+
+  grid-template-areas:
+    "harlot disasterous blank1 gossip traitor"
+    "seductive courtesan love confidant liar"
+    "blank2 friend king guide blank3"
+    "fool hound heir ward cowardly"
+    "worthless liability blank4 irritating disgrace";
+
+  #harlot {
+    grid-area: harlot;
+  }
+  #disasterous {
+    grid-area: disasterous;
+  }
+  #gossip {
+    grid-area: gossip;
+  }
+  #traitor {
+    grid-area: traitor;
+  }
+  #seductive {
+    grid-area: seductive;
+  }
+  #courtesan {
+    grid-area: courtesan;
+  }
+  #love {
+    grid-area: love;
+  }
+  #confidant {
+    grid-area: confidant;
+  }
+  #liar {
+    grid-area: liar;
+  }
+  #friend {
+    grid-area: friend;
+  }
+  #king {
+    grid-area: king;
+    background-color: white;
+    outline-width: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #guide {
+    grid-area: guide;
+  }
+  #fool {
+    grid-area: fool;
+  }
+  #hound {
+    grid-area: hound;
+  }
+  #heir {
+    grid-area: heir;
+  }
+  #ward {
+    grid-area: ward;
+  }
+  #cowardly {
+    grid-area: cowardly;
+  }
+  #worthless {
+    grid-area: worthless;
+  }
+  #liability {
+    grid-area: liability;
+  }
+  #irritating {
+    grid-area: irritating;
+  }
+  #disgrace {
+    grid-area: disgrace;
+  }
+}
+.standing {
+  background-color: #e6e6e6;
+  outline: solid black;
+  border-radius: 5px;
+
+  h3 {
+    margin-top: 0.3em;
+    text-align: center;
+    font-family: "Averia Serif Libre", Georgia, "Times New Roman", Times, serif;
+    font-weight: normal;
+  }
+}
+
+.risky {
+  background-color: #666666;
+  color: white;
+}
+
+.outskirt {
+  background-color: #bdbdbd;
+}
+
+.inner-circle {
+  background-color: white;
+}
