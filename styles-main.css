@@ -1,11 +1,25 @@
 /* All content is designed by Jay Dragon and based off the protype play materials of 7 Part Pact.
  This project is not associated with Jay Dragon or Possum Creek games. */
+html,
+body {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0px;
 }
 
 .main-wrapper {
-  max-height: 100%;
+  height: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
 }
