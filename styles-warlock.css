@@ -1,83 +1,81 @@
 /* All content is designed by Jay Dragon and based off the protype play materials of 7 Part Pact.
  This project is not associated with Jay Dragon or Possum Creek games. */
 
-main {
-  margin: 5px;
-}
-aside {
-  margin: 5px;
-}
 .outlined {
   outline: solid black 1px;
-  padding: 5px;
+  margin: 5px;
   overflow-y: scroll;
-}
-
-body {
-  max-height: 100vh;
 }
 
 .content {
+  min-height: 0%;
+  max-height: 100%;
+}
+
+.summary {
+  min-height: 100%;
+  max-height: 100%;
+  overflow-y: hidden;
+
+  display: grid;
+  grid-template-areas:
+    "symbol    title     title       title       title   g-aside"
+    "symbol    pronouns  fragment    familiar    history g-aside"
+    "fire      air       water       earth       history g-aside"
+    "treasures treasures possessions possessions history g-aside";
+  grid-template-columns: 1.25fr 1.25fr 1.25fr 1.25fr 3fr 2fr;
+  gap: 10px;
+}
+
+.summary .div {
+  min-height: 0;
+}
+
+.symbol {
+  grid-area: symbol;
+  aspect-ratio: 1/1;
+  background-color: red;
+}
+.name {
+  grid-area: title;
+  h1 {
+    text-align: center;
+  }
+}
+.pronouns {
+  grid-area: pronouns;
+}
+.fragment {
+  grid-area: fragment;
+}
+.familiar {
+  grid-area: familiar;
+}
+.fire {
+  grid-area: fire;
+}
+.air {
+  grid-area: air;
+}
+.water {
+  grid-area: water;
+}
+.earth {
+  grid-area: earth;
+}
+.treasures {
+  grid-area: treasures;
+}
+.possessions {
+  grid-area: possessions;
+}
+.history {
+  grid-area: history;
   max-height: 100%;
   overflow-y: scroll;
-  scrollbar-width: thin;
-  .summary {
-    display: grid;
-    grid-template-areas:
-      "symbol    title     title       title       title   g-aside"
-      "symbol    pronouns  fragment    familiar    history g-aside"
-      "fire      air       water       earth       history g-aside"
-      "treasures treasures possessions possessions history g-aside";
-    grid-template-columns: 1.25fr 1.25fr 1.25fr 1.25fr 3fr 2fr;
-    gap: 10px;
-  }
-
-  .symbol {
-    grid-area: symbol;
-    aspect-ratio: 1/1;
-    background-color: red;
-  }
-  .name {
-    grid-area: title;
-    h1 {
-      text-align: center;
-    }
-  }
-  .pronouns {
-    grid-area: pronouns;
-  }
-  .fragment {
-    grid-area: fragment;
-  }
-  .familiar {
-    grid-area: familiar;
-  }
-  .fire {
-    grid-area: fire;
-  }
-  .air {
-    grid-area: air;
-  }
-  .water {
-    grid-area: water;
-  }
-  .earth {
-    grid-area: earth;
-  }
-  .treasures {
-    grid-area: treasures;
-  }
-  .possessions {
-    grid-area: possessions;
-  }
-  .history {
-    grid-area: history;
-    max-height: 100%;
-    overflow-y: scroll;
-  }
-  aside {
-    grid-area: g-aside;
-  }
+}
+.powers {
+  grid-area: g-aside;
 }
 
 #warlock-game-wrapper {
