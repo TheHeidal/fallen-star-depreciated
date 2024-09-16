@@ -1,0 +1,15 @@
+.tabs-container {
+  background-color: rgb(212, 206, 149);
+  ul {
+    padding: 0px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: baseline;
+  }
+
+  li {
+    padding: 3px 10px;
+  }
+}
