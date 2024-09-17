@@ -14,7 +14,7 @@ const WIZARDS = [
   "Anchorite",
 ];
 
-function WizardIcon({ title }) {
+function WizardIcon({ title }: { title: string }) {
   return <li>{title}</li>; //TODO: convert to a link that can work with react-router
 }
 
