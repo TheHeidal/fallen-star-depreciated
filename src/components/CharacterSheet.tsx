@@ -1,10 +1,5 @@
-import {
-  wizardCircle,
-  renderable,
-  wizardHistory,
-  powers,
-  wizard,
-} from "../misc";
+import { WARLOCK_PROPS } from "../assets/default_warlock";
+import { wizardCircle, renderable, wizardHistory, powers } from "../misc";
 
 //TODO: make companion link to the codex
 function CharacterSheetCircle({ circle, value, companion }: wizardCircle) {
@@ -100,7 +95,9 @@ function Powers({ fragment, humble }: powers) {
     </div>
   );
 }
-export default function CharacterSheet(props: wizard) {
+export default function CharacterSheet() {
+  const props = WARLOCK_PROPS;
+
   return (
     <div className="summary">
       <div className="symbol">♂</div>

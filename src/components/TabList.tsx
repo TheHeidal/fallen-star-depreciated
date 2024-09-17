@@ -1,21 +1,18 @@
-import { TABS } from "../misc";
+import { renderable } from "../misc";
+import { Tab } from "./Tab";
 
-function Tab({ name }: { name: string }) {
-  //TODO: refactor for react-router
+export function TabList({
+  tabs,
+}: {
+  tabs: { url: string; display: renderable }[];
+}) {
   return (
-    <li>
-      <a href={`/${name}`}>{name}</a>
-    </li>
-  );
-}
-export default function TabList() {
-  return (
-    <div className="header-container">
+    <nav className="tab-container">
       <ul>
-        {TABS.map((str) => (
-          <Tab name={str} />
+        {tabs.map((tab) => (
+          <Tab {...tab} />
         ))}
       </ul>
-    </div>
+    </nav>
   );
 }
