@@ -1,19 +1,42 @@
 import "./App.css";
 import "react-tabs/style/react-tabs.css";
-import { wizard } from "./misc";
-import MainNavigator from "./components/MainNavigator";
-import TabList from "./components/TabList";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import CharacterSheet from "./components/CharacterSheet";
-import { WARLOCK_PROPS } from "./assets/default_warlock";
+import Root from "./components/root";
+import Wizard from "./components/Wizard";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="wizards/warlock" replace />,
+      },
+      {
+        path: "wizards/:pactPosition",
+        element: <Wizard />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to="summary" replace />,
+          },
+          { path: "summary", element: <CharacterSheet /> },
+        ],
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
     <>
-      <div className="wrapper">
-        <MainNavigator />
-        <TabList />
-        <CharacterSheet {...WARLOCK_PROPS} />
-      </div>
+      <RouterProvider router={router} />
     </>
   );
 }
