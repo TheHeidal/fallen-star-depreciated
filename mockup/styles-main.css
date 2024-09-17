@@ -1,0 +1,77 @@
+/* All content is designed by Jay Dragon and based off the protype play materials of 7 Part Pact.
+ This project is not associated with Jay Dragon or Possum Creek games. */
+html,
+body {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0px;
+}
+
+.main-wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.sticky-header-container {
+  background-color: gainsboro;
+}
+
+.top-navigation .container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+ol.wizard-menu {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 5px;
+  margin: 0px;
+}
+
+ol.wizard-menu li {
+  padding: 5px;
+}
+
+.tabs-container ul {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+
+  li {
+    padding: 5px;
+  }
+}
+
+span.mercury {
+  color: blueviolet;
+}
+span.venus {
+  color: forestgreen;
+}
+span.mars {
+  color: darkred;
+}
+span.jupiter {
+  color: coral;
+}
+span.saturn {
+  color: dimgray;
+}
+span.sun {
+  color: #e3ad31;
+}
