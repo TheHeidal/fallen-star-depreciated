@@ -1,3 +1,25 @@
+h1,
+h2,
+h3 {
+  font-family: "Averia Serif Libre", serif;
+}
+
+h1 {
+  font-size: 34pt;
+}
+h2 {
+  font-size: 26pt;
+}
+h3 {
+  font-size: 22pt;
+}
+
+.codex {
+  margin: 20px;
+  font-family: "Alegreya", serif;
+  font-size: 12pt;
+}
+
 .codex header {
   text-align: center;
 }
