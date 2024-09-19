@@ -16,10 +16,13 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="wizards/warlock" replace />,
+        element: <Navigate to="warlock" replace />,
       },
+      { path: "orrery", element: <>orrery</> },
+      { path: "grimoire", element: <>grimoire</> },
+      { path: "rulebook", element: <>rulebook</> },
       {
-        path: "wizards/:pactPosition",
+        path: ":pactPosition",
         element: <Wizard />,
         children: [
           {

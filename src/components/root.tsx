@@ -3,13 +3,13 @@ import { TabList } from "./TabList";
 
 const pages = [
   { url: "orrery", display: "Orrery" },
-  { url: "wizards/necromancer", display: "Necromancer" },
-  { url: "wizards/hierophant", display: "Hierophant" },
-  { url: "wizards/warlock", display: "Warlock" },
-  { url: "wizards/mariner", display: "Mariner" },
-  { url: "wizards/faustian", display: "Faustian" },
-  { url: "wizards/sorcerer", display: "Sorcerer" },
-  { url: "wizards/anchorite", display: "Anchorite" },
+  { url: "necromancer", display: "Necromancer" },
+  { url: "hierophant", display: "Hierophant" },
+  { url: "warlock", display: "Warlock" },
+  { url: "mariner", display: "Mariner" },
+  { url: "faustian", display: "Faustian" },
+  { url: "sorcerer", display: "Sorcerer" },
+  { url: "anchorite", display: "Anchorite" },
   { url: "grimoire", display: "Grimoire" },
   { url: "rulebook", display: "Rulebook" },
 ];
