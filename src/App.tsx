@@ -8,6 +8,7 @@ import {
 import CharacterSheet from "./components/CharacterSheet";
 import Root from "./components/root";
 import Wizard from "./components/Wizard";
+import Codex from "./components/Codex";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
             element: <Navigate to="summary" replace />,
           },
           { path: "summary", element: <CharacterSheet /> },
+          { path: "codex", element: <Codex /> },
         ],
       },
     ],
