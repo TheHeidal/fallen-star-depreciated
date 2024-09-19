@@ -24,11 +24,14 @@ export type wizardCircle = {
 export type wizardHistory = {
   oldMaster: { known: renderable; unknown: renderable };
   age: renderable;
-  changes: renderable[];
+  changes: { key: React.Key; content: renderable }[];
   manhood: renderable;
   appearance: renderable;
 };
-export type powers = { fragment: renderable[]; humble: renderable[] };
+export type powers = {
+  fragment: { key: React.Key; content: renderable }[];
+  humble: { key: React.Key; content: renderable }[];
+};
 export type wizard = {
   position: pactPosition;
   name: renderable;
@@ -39,8 +42,8 @@ export type wizard = {
   air: wizardCircle;
   water: wizardCircle;
   earth: wizardCircle;
-  treasures: renderable[];
-  possessions: renderable[];
+  treasures: { key: React.Key; content: renderable }[];
+  possessions: { key: React.Key; content: renderable }[];
   history: wizardHistory;
   powers: powers;
 };

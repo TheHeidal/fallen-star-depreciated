@@ -1,3 +1,4 @@
+import React from "react";
 import { WARLOCK_PROPS } from "../assets/default_warlock";
 import { wizardCircle, renderable, wizardHistory, powers } from "../misc";
 
@@ -16,14 +17,17 @@ function CharacterSheetCircle({ circle, value, companion }: wizardCircle) {
     </div>
   );
 }
+
 function SummaryList({
   heading,
   items,
 }: {
   heading: renderable;
-  items: renderable[];
+  items: { key: React.Key; content: renderable }[];
 }) {
-  const listItems = items.map((element) => <li>{element}</li>);
+  const listItems = items.map(({ key, content }) => (
+    <li key={key}>{content}</li>
+  ));
   return (
     <div className="outlined">
       <h2>{heading}</h2>
@@ -31,6 +35,7 @@ function SummaryList({
     </div>
   );
 }
+
 function History({
   oldMaster,
   age,
@@ -55,8 +60,8 @@ function History({
       <section>
         <h3>Changes of Magic</h3>
         <ul>
-          {changes.map((change) => (
-            <li>{change}</li>
+          {changes.map(({ key, content }) => (
+            <li key={key}>{content}</li>
           ))}
         </ul>
       </section>
@@ -78,16 +83,16 @@ function Powers({ fragment, humble }: powers) {
         <section>
           <h3>Pact Fragment:</h3>
           <ul>
-            {fragment.map((x) => (
-              <li>{x}</li>
+            {fragment.map(({ key, content }) => (
+              <li key={key}>{content}</li>
             ))}
           </ul>
         </section>
         <section>
           <h3>Humble Magics:</h3>
           <ul>
-            {humble.map((x) => (
-              <li>{x}</li>
+            {humble.map(({ key, content }) => (
+              <li key={key}>{content}</li>
             ))}
           </ul>
         </section>

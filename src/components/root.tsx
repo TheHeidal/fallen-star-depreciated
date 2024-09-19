@@ -1,7 +1,4 @@
 import { Outlet } from "react-router-dom";
-import MainNavigator from "./MainNavigator";
-import { WIZARDS } from "../misc";
-import { Tab } from "./Tab";
 import { TabList } from "./TabList";
 
 const pages = [
@@ -18,10 +15,9 @@ const pages = [
 ];
 
 export default function Root() {
-  const pageIcons = pages.map((page) => Tab({ ...page }));
   return (
     <>
-      <TabList tabs={pages} />
+      <TabList tabs={pages} ariaLabel="pages" />
       <Outlet />
     </>
   );

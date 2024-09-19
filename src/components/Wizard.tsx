@@ -10,7 +10,7 @@ const WIZARD_TABS = [
 export default function Wizard() {
   return (
     <>
-      <TabList tabs={WIZARD_TABS} />
+      <TabList tabs={WIZARD_TABS} ariaLabel="tabs" />
       <Outlet />
     </>
   );
