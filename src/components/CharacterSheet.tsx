@@ -1,6 +1,6 @@
 import React from "react";
 import { WARLOCK_PROPS } from "../assets/default_warlock";
-import { wizardCircle, renderable, wizardHistory, powers } from "../misc";
+import { wizardCircle, wizardHistory, powers, inlineRenderable } from "../misc";
 
 //TODO: make companion link to the codex
 function CharacterSheetCircle({ circle, value, companion }: wizardCircle) {
@@ -22,8 +22,8 @@ function SummaryList({
   heading,
   items,
 }: {
-  heading: renderable;
-  items: { key: React.Key; content: renderable }[];
+  heading: string;
+  items: { key: React.Key; content: inlineRenderable }[];
 }) {
   const listItems = items.map(({ key, content }) => (
     <li key={key}>{content}</li>

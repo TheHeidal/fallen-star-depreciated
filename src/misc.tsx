@@ -1,4 +1,6 @@
-export type renderable = string;
+import { ReactElement } from "react";
+
+export const TABS = ["Summary", "Board", "Codex"];
 export const WIZARDS: pactPosition[] = [
   "Necromancer",
   "Hierophant",
@@ -19,31 +21,31 @@ export type pactPosition =
 export type wizardCircle = {
   circle: "Fire" | "Air" | "Water" | "Earth";
   value: number;
-  companion: renderable;
+  companion: string;
 };
 export type wizardHistory = {
-  oldMaster: { known: renderable; unknown: renderable };
-  age: renderable;
-  changes: { key: React.Key; content: renderable }[];
-  manhood: renderable;
-  appearance: renderable;
+  oldMaster: { known: string; unknown: string };
+  age: string;
+  changes: { key: React.Key; content: string }[];
+  manhood: string;
+  appearance: string;
 };
 export type powers = {
-  fragment: { key: React.Key; content: renderable }[];
-  humble: { key: React.Key; content: renderable }[];
+  fragment: { key: React.Key; content: string }[];
+  humble: { key: React.Key; content: string }[];
 };
 export type wizard = {
   position: pactPosition;
-  name: renderable;
-  titles: renderable;
-  fragment: renderable;
-  familiar: renderable;
+  name: string;
+  titles: string;
+  fragment: string;
+  familiar: string;
   fire: wizardCircle;
   air: wizardCircle;
   water: wizardCircle;
   earth: wizardCircle;
-  treasures: { key: React.Key; content: renderable }[];
-  possessions: { key: React.Key; content: renderable }[];
+  treasures: { key: React.Key; content: string }[];
+  possessions: { key: React.Key; content: string }[];
   history: wizardHistory;
   powers: powers;
 };

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { renderable } from "../misc";
 
 function Tab({ url, display }: { url: string; display: string }) {
   return (
@@ -13,7 +12,7 @@ export function TabList({
   tabs,
   ariaLabel,
 }: {
-  tabs: { url: string; display: renderable }[];
+  tabs: { url: string; display: string }[];
   ariaLabel: string;
 }) {
   return (
