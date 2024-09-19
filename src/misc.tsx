@@ -49,4 +49,15 @@ export type wizard = {
   history: wizardHistory;
   powers: powers;
 };
-export const TABS = ["Summary", "Board", "Codex"];
+
+export type inlineRenderable = string | ReactElement;
+
+export type pactFragment = {
+  legend: string;
+  idPrefix: string;
+  optionName: string;
+  options: {
+    value: string;
+    labelContent: inlineRenderable;
+  }[];
+};
