@@ -1,9 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import "./TabList.css";
 
 function Tab({ url, display }: { url: string; display: string }) {
   return (
     <li key={url}>
-      <Link to={`${url}`}>{display}</Link>
+      <NavLink
+        to={`${url}`}
+        className={({ isActive, isPending }) =>
+          isActive ? "active" : isPending ? "pending" : ""
+        }>
+        {display}
+      </NavLink>
     </li>
   );
 }

@@ -41,6 +41,14 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Alegreya"
+      />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre"
+      />
       <RouterProvider router={router} />
     </>
   );

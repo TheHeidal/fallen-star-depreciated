@@ -1,0 +1,32 @@
+.tab-container {
+  overflow: hidden;
+}
+.tab-container ul {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  /* overflow: hidden; */
+  /* -moz-box-shadow: inset 0 -10px 10px -10px grey;
+  -webkit-box-shadow: inset 0 -10px 10px -10px grey; */
+  box-shadow: inset 0 -10px 10px -10px grey;
+
+  font-size: large;
+  font-family: "Averia Serif Libre", serif;
+}
+
+.tab-container li {
+  list-style: none;
+  a {
+    display: block;
+    margin: 8px 0 0;
+    padding: 0 8px;
+    border-start-start-radius: 5px;
+    border-start-end-radius: 5px;
+  }
+  .active {
+    background-color: white;
+    box-shadow: 0 0px 10px grey;
+  }
+}

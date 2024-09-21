@@ -55,14 +55,6 @@ export default function Codex() {
 
   return (
     <div className="codex">
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Alegreya"
-      />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre"
-      />
       <header>
         <h1>The Book of Thrones</h1>
         <p>The Warlock's Codex of the Seven-Part Pact</p>
