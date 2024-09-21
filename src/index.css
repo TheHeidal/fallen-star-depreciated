@@ -17,6 +17,12 @@
   width: 100%;
 }
 
+h1,
+h2,
+h3 {
+  font-family: "Averia Serif Libre", serif;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

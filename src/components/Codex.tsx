@@ -2,149 +2,155 @@ import "./Codex.css";
 import { useFetcher, useLoaderData } from "react-router-dom";
 import { inlineRenderable } from "../misc";
 
-const EarthAir = {
-  legend:
-    "One of the many noble clans of Isha claims you as a member of their family.",
-  name: "elements_1",
-  options: [
+const ELEMENT_QUESTIONS = {
+  name: "elements",
+  questions: [
     {
-      value: "E",
-      className: "earth",
-      labelContent: "I was my father's favorite child (+1 Earth)",
+      legend:
+        "One of the many noble clans of Isha claims you as a member of their family.",
+      options: [
+        {
+          value: "E",
+          className: "earth",
+          labelContent: (
+            <span>
+              I was <strong>my father's favorite child</strong>. (+1 Earth)
+            </span>
+          ),
+        },
+        {
+          value: "A",
+          className: "air",
+          labelContent: (
+            <span>
+              I was <strong>the black sheep of the family</strong>. (+1 Air)
+            </span>
+          ),
+        },
+      ],
     },
     {
-      value: "A",
-      className: "air",
-      labelContent: "I was the black sheep of the family (+1 Air)",
-    },
-  ],
-};
-const EarthWater = {
-  legend:
-    "As a member of the nobility, it is expected for you to possess tremendous wealth.",
-  name: "elements_2",
-  options: [
-    {
-      value: "E",
-      className: "earth",
-      labelContent: (
-        <span>
-          I am <strong>frugal and austere</strong>. (+1 Earth)
-        </span>
-      ),
-    },
-    {
-      value: "W",
-      className: "water",
-      labelContent: (
-        <span>
-          I <strong>spend lavishly on that which appeals to me</strong>. (+1
-          Water)
-        </span>
-      ),
-    },
-  ],
-};
-const WaterAir = {
-  legend:
-    "You are a warrior on behalf of the King, and have thus fought in battle.",
-  name: "elements_3",
-  options: [
-    {
-      value: "W",
-      className: "earth",
-      labelContent: (
-        <span>
-          Within my own mind I am a{" "}
-          <strong>chivalrous hero and adventurer</strong> (+1 Water)
-        </span>
-      ),
+      legend:
+        "As a member of the nobility, it is expected for you to possess tremendous wealth.",
+      options: [
+        {
+          value: "E",
+          className: "earth",
+          labelContent: (
+            <span>
+              I am <strong>frugal and austere</strong>. (+1 Earth)
+            </span>
+          ),
+        },
+        {
+          value: "W",
+          className: "water",
+          labelContent: (
+            <span>
+              I <strong>spend lavishly on that which appeals to me</strong>. (+1
+              Water)
+            </span>
+          ),
+        },
+      ],
     },
     {
-      value: "A",
-      className: "air",
-      labelContent: (
-        <span>
-          Within my own mind I am a <strong>a brutal executioner </strong>. (+1
-          Air)
-        </span>
-      ),
-    },
-  ],
-};
-const WaterFire = {
-  legend:
-    "The King commands you to murder an innocent woman, who begs for your mercy.",
-  name: "elements_4",
-  options: [
-    {
-      value: "W",
-      className: "water",
-      labelContent: (
-        <span>
-          I would <strong>save her life and hide her away</strong> (+1 Water)
-        </span>
-      ),
+      legend:
+        "You are a warrior on behalf of the King, and have thus fought in battle. Within your own mind, what are you?",
+      options: [
+        {
+          value: "W",
+          className: "earth",
+          labelContent: (
+            <span>
+              A <strong>chivalrous hero and adventurer</strong> (+1 Water)
+            </span>
+          ),
+        },
+        {
+          value: "A",
+          className: "air",
+          labelContent: (
+            <span>
+              A <strong>a brutal executioner </strong>. (+1 Air)
+            </span>
+          ),
+        },
+      ],
     },
     {
-      value: "F",
-      className: "fire",
-      labelContent: (
-        <span>
-          I would <strong>follow his commands despite my misgivings</strong>.
-          (+1 Fire)
-        </span>
-      ),
-    },
-  ],
-};
-const AirFire = {
-  legend:
-    "You serve two masters, and are caught between your loyalties. Which do you value more?",
-  name: "elements_5",
-  options: [
-    {
-      value: "A",
-      className: "air",
-      labelContent: (
-        <span>
-          <strong>The King</strong>. (+1 Air)
-        </span>
-      ),
-    },
-    {
-      value: "F",
-      className: "fire",
-      labelContent: (
-        <span>
-          <strong>The Pact</strong>. (+1 Fire)
-        </span>
-      ),
-    },
-  ],
-};
-const FireEarth = {
-  legend:
-    "You have killed a man before. When you close your eyes and remember, how do you feel?",
-  name: "elements_5",
-  options: [
-    {
-      value: "F",
-      className: "fire",
-      labelContent: (
-        <span>
-          <strong>Proud</strong>. (+1 Fire)
-        </span>
-      ),
+      legend:
+        "The King commands you to murder an innocent woman, who begs for your mercy.",
+      options: [
+        {
+          value: "W",
+          className: "water",
+          labelContent: (
+            <span>
+              I would <strong>save her life and hide her away</strong> (+1
+              Water)
+            </span>
+          ),
+        },
+        {
+          value: "F",
+          className: "fire",
+          labelContent: (
+            <span>
+              I would <strong>follow his commands despite my misgivings</strong>
+              . (+1 Fire)
+            </span>
+          ),
+        },
+      ],
     },
     {
-      value: "E",
-      className: "earth",
-      labelContent: (
-        <span>
-          <strong>Guilty</strong>. (+1 Earth)
-        </span>
-      ),
+      legend:
+        "You serve two masters, and are caught between your loyalties. Which do you value more?",
+      options: [
+        {
+          value: "A",
+          className: "air",
+          labelContent: (
+            <span>
+              <strong>The King</strong>. (+1 Air)
+            </span>
+          ),
+        },
+        {
+          value: "F",
+          className: "fire",
+          labelContent: (
+            <span>
+              <strong>The Pact</strong>. (+1 Fire)
+            </span>
+          ),
+        },
+      ],
+    },
+    {
+      legend:
+        "You have killed a man before. When you close your eyes and remember, how do you feel?",
+      options: [
+        {
+          value: "F",
+          className: "fire",
+          labelContent: (
+            <span>
+              <strong>Proud</strong>. (+1 Fire)
+            </span>
+          ),
+        },
+        {
+          value: "E",
+          className: "earth",
+          labelContent: (
+            <span>
+              <strong>Guilty</strong>. (+1 Earth)
+            </span>
+          ),
+        },
+      ],
     },
   ],
 };
@@ -242,39 +248,19 @@ export default function Codex() {
                 corresponding Elemental Circle.
               </p>
               <ul>
-                <li>
-                  <ElementQuestion {...EarthAir} />
-                </li>
-                <li>
-                  <ElementQuestion {...EarthWater} />
-                </li>
-                <li>
-                  <ElementQuestion {...WaterAir} />
-                </li>
-                <li>
-                  <ElementQuestion {...WaterFire} />
-                </li>
-                <li>
-                  <ElementQuestion {...AirFire} />
-                </li>
-                <li>
-                  <ElementQuestion {...FireEarth} />
-                </li>
-                <li>
-                  The King commands you to murder an innocent woman, who begs
-                  for your mercy. Do you save her life and hide her away (+1
-                  Water) or follow his commands despite your misgivings (+1
-                  Fire)?
-                </li>
-                <li>
-                  You serve two masters, and are caught between your loyalties.
-                  Which do you value more: the King (+1 Air) or the Pact (+1
-                  Fire)?
-                </li>
-                <li>
-                  You have killed a man before. When you close your eyes and
-                  remember, do you feel proud (+1 Fire) or guilty (+1 Earth)?
-                </li>
+                {ELEMENT_QUESTIONS.questions.map(
+                  ({ legend, options }, index) => {
+                    return (
+                      <li key={index}>
+                        <ElementQuestion
+                          legend={legend}
+                          name={`${ELEMENT_QUESTIONS.name}_${index}`}
+                          options={options}
+                        />
+                      </li>
+                    );
+                  }
+                )}
               </ul>
             </section>
             <section className="fragment-form question">
