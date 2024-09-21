@@ -26,3 +26,28 @@ h3 {
 .instructions {
   font-weight: bold;
 }
+
+fieldset li {
+}
+
+input[type="radio"]:checked {
+  + * span {
+  }
+
+  + *.earth,
+  + * *.earth {
+    color: rgb(76, 223, 93);
+  }
+  + .air,
+  + * *.air {
+    color: rgb(225, 236, 143);
+  }
+  + .water,
+  + * *.water {
+    color: rgb(79, 196, 222);
+  }
+  + .fire,
+  + * *.fire {
+    color: rgb(247, 96, 94);
+  }
+}

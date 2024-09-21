@@ -3,6 +3,24 @@ import "./Codex.css";
 import { useFetcher, useLoaderData } from "react-router-dom";
 import { inlineRenderable } from "../misc";
 
+const EarthAir = {
+  legend:
+    "One of the many noble clans of Isha claims you as a member of their family. Were you",
+  name: "elements_1",
+  options: [
+    {
+      value: "E",
+      className: "answer earth",
+      labelContent: "your father's favorite child (+1 Earth)",
+    },
+    {
+      value: "A",
+      className: "answer air",
+      labelContent: "the black sheep of the family (+1 Air)",
+    },
+  ],
+};
+
 const data = {
   pactFragment: {
     legend: "Pact Fragment Form",
@@ -12,7 +30,7 @@ const data = {
       {
         value: "F",
         labelContent: (
-          <span>
+          <span className="fire">
             A regal broadsword, engraved with an oath of power, which may burst
             into flames at your will. (+1 Fire)
           </span>
@@ -21,7 +39,7 @@ const data = {
       {
         value: "A",
         labelContent: (
-          <span>
+          <span className="air">
             A shining longbow, carved with glorious depictions of warriors past,
             and always nocked with an arrow. (+1 Air)
           </span>
@@ -30,7 +48,7 @@ const data = {
       {
         value: "W",
         labelContent: (
-          <span>
+          <span className="water">
             Twin cutlasses, one white as bone and the other black as night,
             well-versed in naval combat. (+1 Water)
           </span>
@@ -39,7 +57,7 @@ const data = {
       {
         value: "E",
         labelContent: (
-          <span>
+          <span className="earth">
             A cruel ax, heavy with blood and executions past, which no man but
             you may lift. (+1 Earth)
           </span>
@@ -93,14 +111,51 @@ export default function Codex() {
               </p>
               <ul>
                 <li>
-                  One of the many noble clans of Isha claims you as a member of
-                  their family. Were you your father's favorite child (+1 Earth)
-                  or the black sheep of the family (+1 Air)?
+                  <ElementQuestion
+                    legend="One of the many noble clans of Isha claims you as a member
+                      of their family. Were you"
+                    name="elements_1"
+                    options={[
+                      {
+                        value: "E",
+                        className: "answer earth",
+                        labelContent: "your father's favorite child (+1 Earth)",
+                      },
+                      {
+                        value: "A",
+                        className: "answer air",
+                        labelContent: "the black sheep of the family (+1 Air)",
+                      },
+                    ]}
+                  />
                 </li>
                 <li>
-                  As a member of the nobility, it is expected for you to possess
-                  tremendous wealth. Are you frugal and austere (+1 Earth) or do
-                  you spend lavishly on that which appeals to you (+1 Water)?
+                  <fieldset>
+                    <legend>
+                      As a member of the nobility, it is expected for you to
+                      possess tremendous wealth. Are you
+                    </legend>
+                    <input
+                      type="radio"
+                      id="elements_2_1"
+                      name="elements_2"
+                      value={"E"}
+                    />
+                    <label htmlFor="elements_2_1" className="answer earth">
+                      frugal and austere (+1 Earth)
+                    </label>
+                    {" or do you "}
+                    <input
+                      type="radio"
+                      id="elements_2_2"
+                      name="elements_2"
+                      value={"W"}
+                    />
+                    <label htmlFor="elements_2_2" className="answer water">
+                      spend lavishly on that which appeals to you (+1 Water)
+                    </label>
+                    ?
+                  </fieldset>
                 </li>
                 <li>
                   You are a warrior on behalf of the King, and have thus fought
@@ -495,6 +550,36 @@ export default function Codex() {
     </div>
   );
 
+  function ElementQuestion({
+    legend,
+    name,
+    options,
+  }: {
+    legend: string;
+    name: string;
+    options: {
+      value: string;
+      className: string;
+      labelContent: string;
+    }[];
+  }) {
+    return (
+      <fieldset>
+        <legend>{legend}</legend>
+        <ul>
+          {options.map(({ value, className, labelContent }) => (
+            <li key={value}>
+              <input type="radio" id={name + value} name={name} value={value} />
+              <label htmlFor={name + value} className={className}>
+                {labelContent}
+              </label>
+            </li>
+          ))}
+        </ul>
+      </fieldset>
+    );
+  }
+
   function RadioList({
     legend,
     idPrefix,
@@ -516,15 +601,13 @@ export default function Codex() {
           {options.map(({ value, labelContent }) => {
             return (
               <li key={value}>
-                <label htmlFor={idPrefix + value}>
-                  <input
-                    type="radio"
-                    id={idPrefix + value}
-                    name={optionName}
-                    value={value}
-                  />
-                  {labelContent}
-                </label>
+                <input
+                  type="radio"
+                  id={idPrefix + value}
+                  name={optionName}
+                  value={value}
+                />
+                <label htmlFor={idPrefix + value}>{labelContent}</label>
               </li>
             );
           })}
