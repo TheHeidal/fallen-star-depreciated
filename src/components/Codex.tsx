@@ -1,22 +1,150 @@
-import { ReactElement, JSXElementConstructor, ReactNode } from "react";
 import "./Codex.css";
 import { useFetcher, useLoaderData } from "react-router-dom";
 import { inlineRenderable } from "../misc";
 
 const EarthAir = {
   legend:
-    "One of the many noble clans of Isha claims you as a member of their family. Were you",
+    "One of the many noble clans of Isha claims you as a member of their family.",
   name: "elements_1",
   options: [
     {
       value: "E",
-      className: "answer earth",
-      labelContent: "your father's favorite child (+1 Earth)",
+      className: "earth",
+      labelContent: "I was my father's favorite child (+1 Earth)",
     },
     {
       value: "A",
-      className: "answer air",
-      labelContent: "the black sheep of the family (+1 Air)",
+      className: "air",
+      labelContent: "I was the black sheep of the family (+1 Air)",
+    },
+  ],
+};
+const EarthWater = {
+  legend:
+    "As a member of the nobility, it is expected for you to possess tremendous wealth.",
+  name: "elements_2",
+  options: [
+    {
+      value: "E",
+      className: "earth",
+      labelContent: (
+        <span>
+          I am <strong>frugal and austere</strong>. (+1 Earth)
+        </span>
+      ),
+    },
+    {
+      value: "W",
+      className: "water",
+      labelContent: (
+        <span>
+          I <strong>spend lavishly on that which appeals to me</strong>. (+1
+          Water)
+        </span>
+      ),
+    },
+  ],
+};
+const WaterAir = {
+  legend:
+    "You are a warrior on behalf of the King, and have thus fought in battle.",
+  name: "elements_3",
+  options: [
+    {
+      value: "W",
+      className: "earth",
+      labelContent: (
+        <span>
+          Within my own mind I am a{" "}
+          <strong>chivalrous hero and adventurer</strong> (+1 Water)
+        </span>
+      ),
+    },
+    {
+      value: "A",
+      className: "air",
+      labelContent: (
+        <span>
+          Within my own mind I am a <strong>a brutal executioner </strong>. (+1
+          Air)
+        </span>
+      ),
+    },
+  ],
+};
+const WaterFire = {
+  legend:
+    "The King commands you to murder an innocent woman, who begs for your mercy.",
+  name: "elements_4",
+  options: [
+    {
+      value: "W",
+      className: "water",
+      labelContent: (
+        <span>
+          I would <strong>save her life and hide her away</strong> (+1 Water)
+        </span>
+      ),
+    },
+    {
+      value: "F",
+      className: "fire",
+      labelContent: (
+        <span>
+          I would <strong>follow his commands despite my misgivings</strong>.
+          (+1 Fire)
+        </span>
+      ),
+    },
+  ],
+};
+const AirFire = {
+  legend:
+    "You serve two masters, and are caught between your loyalties. Which do you value more?",
+  name: "elements_5",
+  options: [
+    {
+      value: "A",
+      className: "air",
+      labelContent: (
+        <span>
+          <strong>The King</strong>. (+1 Air)
+        </span>
+      ),
+    },
+    {
+      value: "F",
+      className: "fire",
+      labelContent: (
+        <span>
+          <strong>The Pact</strong>. (+1 Fire)
+        </span>
+      ),
+    },
+  ],
+};
+const FireEarth = {
+  legend:
+    "You have killed a man before. When you close your eyes and remember, how do you feel?",
+  name: "elements_5",
+  options: [
+    {
+      value: "F",
+      className: "fire",
+      labelContent: (
+        <span>
+          <strong>Proud</strong>. (+1 Fire)
+        </span>
+      ),
+    },
+    {
+      value: "E",
+      className: "earth",
+      labelContent: (
+        <span>
+          <strong>Guilty</strong>. (+1 Earth)
+        </span>
+      ),
     },
   ],
 };
@@ -77,6 +205,10 @@ export default function Codex() {
         <h1>The Book of Thrones</h1>
         <p>The Warlock's Codex of the Seven-Part Pact</p>
         <p>Draft 3.24.9.2 (September 2024)</p>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Mars-bonatti.png/640px-Mars-bonatti.png"
+          alt=""
+        />
       </header>
       <section>
         <h2>Part I: The Warlock</h2>
@@ -111,56 +243,22 @@ export default function Codex() {
               </p>
               <ul>
                 <li>
-                  <ElementQuestion
-                    legend="One of the many noble clans of Isha claims you as a member
-                      of their family. Were you"
-                    name="elements_1"
-                    options={[
-                      {
-                        value: "E",
-                        className: "answer earth",
-                        labelContent: "your father's favorite child (+1 Earth)",
-                      },
-                      {
-                        value: "A",
-                        className: "answer air",
-                        labelContent: "the black sheep of the family (+1 Air)",
-                      },
-                    ]}
-                  />
+                  <ElementQuestion {...EarthAir} />
                 </li>
                 <li>
-                  <fieldset>
-                    <legend>
-                      As a member of the nobility, it is expected for you to
-                      possess tremendous wealth. Are you
-                    </legend>
-                    <input
-                      type="radio"
-                      id="elements_2_1"
-                      name="elements_2"
-                      value={"E"}
-                    />
-                    <label htmlFor="elements_2_1" className="answer earth">
-                      frugal and austere (+1 Earth)
-                    </label>
-                    {" or do you "}
-                    <input
-                      type="radio"
-                      id="elements_2_2"
-                      name="elements_2"
-                      value={"W"}
-                    />
-                    <label htmlFor="elements_2_2" className="answer water">
-                      spend lavishly on that which appeals to you (+1 Water)
-                    </label>
-                    ?
-                  </fieldset>
+                  <ElementQuestion {...EarthWater} />
                 </li>
                 <li>
-                  You are a warrior on behalf of the King, and have thus fought
-                  in battle. Within your own mind, are you a chivalrous hero and
-                  adventurer (+1 Water) or a brutal executioner (+1 Air)?
+                  <ElementQuestion {...WaterAir} />
+                </li>
+                <li>
+                  <ElementQuestion {...WaterFire} />
+                </li>
+                <li>
+                  <ElementQuestion {...AirFire} />
+                </li>
+                <li>
+                  <ElementQuestion {...FireEarth} />
                 </li>
                 <li>
                   The King commands you to murder an innocent woman, who begs
@@ -560,13 +658,13 @@ export default function Codex() {
     options: {
       value: string;
       className: string;
-      labelContent: string;
+      labelContent: string | JSX.Element;
     }[];
   }) {
     return (
       <fieldset>
         <legend>{legend}</legend>
-        <ul>
+        <ul className="radio-list" aria-label="list">
           {options.map(({ value, className, labelContent }) => (
             <li key={value}>
               <input type="radio" id={name + value} name={name} value={value} />
