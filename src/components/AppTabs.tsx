@@ -32,10 +32,6 @@ export default function AppTabs(props: {
   const { pathname } = useResolvedPath("");
   const route = useMatch(`${pathname}/:path/*`);
   const matchedPath = route?.params.path;
-  console.log(props.tabs);
-  console.log(route);
-  console.log(route?.params.path);
-
   return (
     <RouterProvider navigate={useNavigate()} useHref={useHref}>
       <Tabs selectedKey={matchedPath}>
@@ -47,51 +43,9 @@ export default function AppTabs(props: {
               </Tab>
             );
           })}
-          {/* <Tab id="orrery" href="orrery">
-            "orrery"
-          </Tab>
-          <Tab id="necromancer" href="necromancer">
-            "necromancer"
-          </Tab>
-          <Tab id="hierophant" href="hierophant">
-            "hierophant"
-          </Tab>
-          <Tab id="warlock" href="warlock">
-            "warlock"
-          </Tab>
-          <Tab id="mariner" href="mariner">
-            "mariner"
-          </Tab>
-          <Tab id="faustian" href="faustian">
-            "faustian"
-          </Tab>
-          <Tab id="sorcerer" href="sorcerer">
-            "sorcerer"
-          </Tab>
-          <Tab id="anchorite" href="anchorite">
-            "anchorite"
-          </Tab>
-          <Tab id="grimoire" href="grimoire">
-            "grimoire"
-          </Tab>
-          <Tab id="rulebook" href="rulebook">
-            "rulebook"
-          </Tab> */}
         </TabList>
         <TabPanel id={matchedPath}>
           <Outlet />
-          {/* <Routes>
-            <Route path="orrery" element={"Orrery"} />
-            <Route path="necromancer" element={<Wizard />} />
-            <Route path="hierophant" element={<Wizard />} />
-            <Route path="warlock" element={<Wizard />} />
-            <Route path="mariner" element={<Wizard />} />
-            <Route path="faustian" element={<Wizard />} />
-            <Route path="sorcerer" element={<Wizard />} />
-            <Route path="anchorite" element={<Wizard />} />
-            <Route path="grimoire" element={"Grimoire"} />
-            <Route path="rulebook" element={"Rulebook"} />
-          </Routes> */}
         </TabPanel>
       </Tabs>
     </RouterProvider>
