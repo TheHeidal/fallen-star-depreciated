@@ -9,24 +9,16 @@ import Codex from "./components/wizard/Codex";
 import CharacterSheet from "./components/wizard/CharacterSheet";
 
 const APP_TABS = [
-  { url: "orrery", display: "Orrery", element: "Orrery" },
-  { url: "necromancer", display: "Necromancer", element: <Wizard /> },
-  {
-    url: "hierophant",
-    display: "Hierophant",
-    element: <Wizard />,
-  },
-  { url: "warlock", display: "Warlock", element: <Wizard /> },
-  { url: "mariner", display: "Mariner", element: <Wizard /> },
-  { url: "faustian", display: "Faustian", element: <Wizard /> },
-  { url: "sorcerer", display: "Sorcerer", element: <Wizard /> },
-  {
-    url: "anchorite",
-    display: "Anchorite",
-    element: <Wizard />,
-  },
-  { url: "grimoire", display: "Grimoire", element: "Grimoire" },
-  { url: "rulebook", display: "Rulebook", element: "Rulebook" },
+  { url: "orrery", display: "Orrery" },
+  { url: "necromancer", display: "Necromancer" },
+  { url: "hierophant", display: "Hierophant" },
+  { url: "warlock", display: "Warlock" },
+  { url: "mariner", display: "Mariner" },
+  { url: "faustian", display: "Faustian" },
+  { url: "sorcerer", display: "Sorcerer" },
+  { url: "anchorite", display: "Anchorite" },
+  { url: "grimoire", display: "Grimoire" },
+  { url: "rulebook", display: "Rulebook" },
 ];
 
 const WIZARD_TABS = [
@@ -64,12 +56,10 @@ const router = createBrowserRouter([
   },
 ]);
 
-function App() {
+export default function App() {
   return (
     <>
       <RouterProvider router={router} />
     </>
   );
 }
-
-export default App;

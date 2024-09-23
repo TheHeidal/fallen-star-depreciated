@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./TabList.css";
 
 function Tab({ url, display }: { url: string; display: string }) {
