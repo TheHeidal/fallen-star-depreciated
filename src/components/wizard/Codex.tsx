@@ -1,6 +1,6 @@
 import "./Codex.css";
 import { useFetcher, useLoaderData } from "react-router-dom";
-import { inlineRenderable } from "../misc";
+import { inlineRenderable } from "../../misc";
 
 const ELEMENT_QUESTIONS = {
   name: "elements",

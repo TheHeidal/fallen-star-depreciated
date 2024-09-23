@@ -5,9 +5,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import AppTabs from "./components/AppTabs";
-import Wizard from "./components/Wizard";
-import Codex from "./components/Codex";
-import CharacterSheet from "./components/CharacterSheet";
+import Codex from "./components/wizard/Codex";
+import CharacterSheet from "./components/wizard/CharacterSheet";
 
 const APP_TABS = [
   { url: "orrery", display: "Orrery", element: "Orrery" },

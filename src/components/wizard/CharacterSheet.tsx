@@ -1,6 +1,11 @@
 import React from "react";
-import { WARLOCK_PROPS } from "../assets/default_warlock";
-import { wizardCircle, wizardHistory, powers, inlineRenderable } from "../misc";
+import { WARLOCK_PROPS } from "../../assets/default_warlock";
+import {
+  wizardCircle,
+  wizardHistory,
+  powers,
+  inlineRenderable,
+} from "../../misc";
 
 //TODO: make companion link to the codex
 function CharacterSheetCircle({ circle, value, companion }: wizardCircle) {
