@@ -1,5 +1,3 @@
-import "./App.css";
-import "react-tabs/style/react-tabs.css";
 import {
   createBrowserRouter,
   Navigate,

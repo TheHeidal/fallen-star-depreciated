@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-
+react-aria-tailwind-starter.69cc4456c
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
