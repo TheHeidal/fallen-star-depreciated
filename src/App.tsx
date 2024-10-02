@@ -7,6 +7,7 @@ import CharacterSheet from "./components/CharacterSheet";
 import Root from "./components/root";
 import Wizard from "./components/Wizard";
 import Codex from "./components/Codex";
+import Orrery from "./components/Orrery";
 
 const router = createBrowserRouter([
   {
@@ -15,9 +16,9 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="warlock" replace />,
+        element: <Navigate to="orrery" replace />,
       },
-      { path: "orrery", element: <>orrery</> },
+      { path: "orrery", element: <Orrery /> },
       { path: "grimoire", element: <>grimoire</> },
       { path: "rulebook", element: <>rulebook</> },
       {
