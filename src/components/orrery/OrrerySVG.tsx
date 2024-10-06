@@ -1,5 +1,5 @@
 import Token from "./ArcToken";
-import Ring from "./Ring";
+import Ring, { DivisionParams } from "./Ring";
 
 export type CelestialBody = {
   id: string;
@@ -9,27 +9,36 @@ export type CelestialBody = {
   intRadius: number;
   spanAngle: number;
   centerAngle: number;
+  divisionParams?: DivisionParams[];
 };
 
 export function OrrerySVG({
   className,
-  viewBox = "-125 -125 250 250",
+  viewBox = { minX: -125, minY: -125, width: 250, height: 250 },
   childrenList,
 }: {
   className?: string;
-  viewBox?: string;
+  viewBox?: { minX: number; minY: number; width: number; height: number };
   childrenList: CelestialBody[];
 }) {
   const ringList = childrenList.map(
-    ({ id, ringClassName, extRadius, intRadius, centerAngle }) => {
+    ({
+      id,
+      ringClassName,
+      extRadius,
+      intRadius,
+      centerAngle,
+      divisionParams,
+    }) => {
       return (
         <Ring
           key={`${id}_Ring`}
-          id={`${id}_Token`}
+          id={`${id}_Ring`}
           className={ringClassName}
           intRadius={intRadius}
           extRadius={extRadius}
           dividingAngle={centerAngle}
+          divisionParams={divisionParams}
           onCW={() => {}}
           onWS={() => {}}
         />
@@ -53,8 +62,16 @@ export function OrrerySVG({
   );
 
   return (
-    <svg className={className} viewBox={viewBox}>
-      <rect x="-300" y="-300" width={"600"} height={"600"} fill="grey" />
+    <svg
+      className={className}
+      viewBox={`${viewBox.minX} ${viewBox.minY} ${viewBox.width} ${viewBox.width}`}>
+      <rect
+        x={`${viewBox.minX}`}
+        y={`${viewBox.minY}`}
+        width={viewBox.width}
+        height={viewBox.width}
+        fill="grey"
+      />
       {ringList}
       {tokenList}
     </svg>
