@@ -7,7 +7,7 @@ export type RingParams = {
   extRadius: number;
   dividingAngle: number;
   onCW: () => void;
-  onCCW: () => void;
+  onWS: () => void;
 };
 
 export default function Ring({
@@ -17,7 +17,7 @@ export default function Ring({
   extRadius,
   dividingAngle = 0,
   onCW,
-  onCCW,
+  onWS,
 }: RingParams) {
   const extDividingPoint = polarToCartesian(extRadius, dividingAngle);
   const intDividingPoint = polarToCartesian(intRadius, dividingAngle);
@@ -53,7 +53,7 @@ export default function Ring({
       />
       <path
         className={`fill-transparent hover:fill-gray-100`}
-        onClick={onCCW}
+        onClick={onWS}
         d={`
     M ${extDividingPoint.x} ${extDividingPoint.y}
     A ${extRadius} ${extRadius} 0 1 0 ${-extDividingPoint.x} ${-extDividingPoint.y}

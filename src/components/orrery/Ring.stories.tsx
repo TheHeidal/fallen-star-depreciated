@@ -1,11 +1,12 @@
+import { Meta, StoryObj } from "@storybook/react/*";
 import Ring from "./Ring";
 
 export const ActionsData = {
   onCW: () => {},
-  onCCW: () => {},
+  onWS: () => {},
 };
 
-export default {
+const meta: Meta<typeof Ring> = {
   component: Ring,
   title: "Ring",
   tags: ["autodocs"],
@@ -22,6 +23,9 @@ export default {
     ...ActionsData,
   },
 };
+
+export default meta;
+type Story = StoryObj<typeof Ring>;
 
 export const Saturn = {
   args: {

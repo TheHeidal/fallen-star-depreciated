@@ -1,12 +1,14 @@
 import { polarToCartesian } from "./angleMisc";
 
 export default function Token({
+  id,
   className,
   intRadius,
   extRadius,
   spanAngle,
   centerAngle,
 }: {
+  id?: string;
   className?: string;
   intRadius: number;
   extRadius: number;

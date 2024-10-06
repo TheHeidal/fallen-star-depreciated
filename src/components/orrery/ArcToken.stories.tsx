@@ -1,13 +1,14 @@
 import { JSX } from "react/jsx-runtime";
 import ArcToken from "./ArcToken";
+import { Meta, StoryObj } from "@storybook/react";
 
-export default {
+const meta: Meta<typeof ArcToken> = {
   component: ArcToken,
   title: "Arc Token",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
   decorators: [
-    (Story: JSX.Element) => (
+    (Story) => (
       <svg className="size-1/2" viewBox="-125 -125 250 250">
         <rect x="-300" y="-300" width="600" height="600" fill="grey"></rect>
         <Story />
@@ -16,7 +17,10 @@ export default {
   ],
 };
 
-export const Saturn = {
+export default meta;
+type Story = StoryObj<typeof ArcToken>;
+
+export const Saturn: Story = {
   args: {
     id: "Saturn",
     className: "fill-slate-400",
@@ -26,7 +30,7 @@ export const Saturn = {
     centerAngle: 0,
   },
 };
-export const Jupiter = {
+export const Jupiter: Story = {
   args: {
     id: "Jupiter",
     className: "fill-amber-600",
@@ -36,7 +40,7 @@ export const Jupiter = {
     centerAngle: 360 * (1.5 / 48),
   },
 };
-export const Mars = {
+export const Mars: Story = {
   args: {
     id: "Mars",
     className: "fill-red-500",
@@ -46,7 +50,7 @@ export const Mars = {
     centerAngle: 360 * (1.5 / 24),
   },
 };
-export const Venus = {
+export const Venus: Story = {
   args: {
     id: "Venus",
     className: "fill-green-600",
@@ -56,7 +60,7 @@ export const Venus = {
     centerAngle: 360 * (2.5 / 24),
   },
 };
-export const Mercury = {
+export const Mercury: Story = {
   args: {
     id: "Mercury",
     className: "fill-violet-500",
