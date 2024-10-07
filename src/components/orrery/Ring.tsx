@@ -1,4 +1,4 @@
-import { RingProps } from "./RingHalf";
+import { RingProps } from "./orreryTypes";
 
 export default function Ring(props: RingProps) {
   const extRadius = props.extRadius;

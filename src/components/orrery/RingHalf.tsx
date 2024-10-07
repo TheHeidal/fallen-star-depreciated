@@ -1,12 +1,6 @@
+import { RingProps } from "./orreryTypes";
+
 /**A half-ring around the origin, on the positive-x side. */
-
-import React from "react";
-
-export interface RingProps extends React.SVGProps<SVGPathElement> {
-  intRadius: number;
-  extRadius: number;
-}
-
 export default function RingHalf(props: RingProps) {
   return (
     <path
