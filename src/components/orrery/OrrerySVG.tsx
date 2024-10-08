@@ -1,79 +1,54 @@
-import Token from "./ArcToken";
-import Ring, { DivisionParams } from "./Ring";
+import { ReactElement, useReducer } from "react";
+import { motion } from "framer-motion";
+import CelestialBody, { CelestialBodyProps } from "./CelestialBody";
+import MonthRing, { MonthRingProps } from "./MonthRing";
 
-export type CelestialBody = {
-  id: string;
-  ringClassName: string;
-  tokenClassName: string;
-  extRadius: number;
-  intRadius: number;
-  spanAngle: number;
-  centerAngle: number;
-  divisionParams?: DivisionParams[];
-};
+interface OrrerySVGProps extends React.SVGProps<SVGSVGElement> {
+  cbList: CelestialBodyProps[];
+  advancer?: ReactElement;
+  monthProps?: MonthRingProps;
+  bounce?: number;
+  duration?: number;
+}
 
-export function OrrerySVG({
-  className,
-  viewBox = { minX: -125, minY: -125, width: 250, height: 250 },
-  childrenList,
-}: {
-  className?: string;
-  viewBox?: { minX: number; minY: number; width: number; height: number };
-  childrenList: CelestialBody[];
-}) {
-  const ringList = childrenList.map(
-    ({
-      id,
-      ringClassName,
-      extRadius,
-      intRadius,
-      centerAngle,
-      divisionParams,
-    }) => {
-      return (
-        <Ring
-          key={`${id}_Ring`}
-          id={`${id}_Ring`}
-          className={ringClassName}
-          intRadius={intRadius}
-          extRadius={extRadius}
-          dividingAngle={centerAngle}
-          divisionParams={divisionParams}
-          onCW={() => {}}
-          onWS={() => {}}
-        />
-      );
-    }
-  );
-  const tokenList = childrenList.map(
-    ({ id, tokenClassName, extRadius, intRadius, spanAngle, centerAngle }) => {
-      return (
-        <Token
-          key={`${id}_Token`}
-          id={`${id}_Token`}
-          className={tokenClassName}
-          intRadius={intRadius}
-          extRadius={extRadius}
-          spanAngle={spanAngle}
-          centerAngle={centerAngle}
-        />
-      );
-    }
-  );
+function reducer(state: number, action: { type: "increment" | "decrement" }) {
+  switch (action.type) {
+    case "increment":
+      return state + 1;
+    case "decrement":
+      return state - 1;
+  }
+}
+
+export default function OrrerySVG({
+  cbList,
+  advancer,
+  bounce = 0.15,
+  duration = 0.8,
+
+  ...restProps
+}: OrrerySVGProps) {
+  const [state, dispatch] = useReducer(reducer, 0);
 
   return (
-    <svg
-      className={className}
-      viewBox={`${viewBox.minX} ${viewBox.minY} ${viewBox.width} ${viewBox.width}`}>
-      <rect
-        x={`${viewBox.minX}`}
-        y={`${viewBox.minY}`}
-        width={viewBox.width}
-        height={viewBox.width}
-        fill="grey"
-      />
-      {ringList}
-      {tokenList}
+    <svg {...restProps}>
+      {restProps.monthProps && <MonthRing {...restProps.monthProps} />}
+      <g
+        onClick={() => {
+          dispatch({ type: "increment" });
+        }}>
+        {advancer}
+      </g>
+      {cbList.map((cbProps, index) => {
+        return (
+          <motion.g
+            initial={{ rotate: 0 }}
+            animate={{ rotate: state * cbProps.spanAngle }}
+            transition={{ type: "spring", bounce: bounce, duration: duration }}>
+            <CelestialBody key={index} {...cbProps} />
+          </motion.g>
+        );
+      })}
     </svg>
   );
 }

@@ -19,7 +19,7 @@ export const DivisionsData = {
   div_48_dashed: {
     divisions: 24,
     transform: `rotate(${360 / 48})`,
-    className: "stroke-black stroke-[0.5px] [stroke-dasharray:2,2]",
+    className: "stroke-black stroke-[0.5px] [stroke-dasharray:1,1]",
   },
 };
 

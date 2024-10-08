@@ -2,6 +2,11 @@ import CelestialBody from "./CelestialBody";
 import { Meta, StoryObj } from "@storybook/react";
 import { DivisionsData } from "./RingDivisions.stories";
 
+export const CBData = {
+  bounce: 0.2,
+  halfClassName: "fill-gray-100 transition-opacity opacity-0 hover:opacity-25",
+};
+
 const meta: Meta<typeof CelestialBody> = {
   component: CelestialBody,
   title: "Celestial Bodies",
@@ -9,16 +14,12 @@ const meta: Meta<typeof CelestialBody> = {
   excludeStories: /.*Data$/,
   decorators: [
     (Story) => (
-      <svg className="size-1/2" viewBox="-125 -125 250 250">
-        <rect x="-300" y="-300" width="600" height="600" fill="grey"></rect>
+      <svg className="size-1/2 bg-gray-500" viewBox="-125 -125 250 250">
         {Story()}
       </svg>
     ),
   ],
-  args: {
-    halfClassName:
-      "fill-transparent transition-color hover:fill-gray-100 opacity-75",
-  },
+  args: { ...CBData },
 };
 
 export default meta;
@@ -30,7 +31,7 @@ export const Saturn: Story = {
     ringClassName: "fill-slate-700",
     tokenClassName: "fill-slate-500",
     spanAngle: 10,
-    tokenAngle: -5,
+    tokenInitialPosition: -5,
     divisions: [DivisionsData.div_36_solid],
   },
 };
@@ -41,7 +42,6 @@ export const Jupiter: Story = {
     tokenClassName: "fill-amber-600",
     radii: { extRadius: 85, intRadius: 70 },
     spanAngle: 360 * (3 / 48),
-    tokenAngle: 360 * (1.5 / 48),
     divisions: [
       DivisionsData.div_12_solid,
       DivisionsData.div_24_dashed,
@@ -56,7 +56,15 @@ export const Mars: Story = {
     tokenClassName: "fill-red-500",
     radii: { extRadius: 70, intRadius: 55 },
     spanAngle: 360 * (3 / 24),
-    tokenAngle: 360 * (1.5 / 24),
+    divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
+  },
+};
+export const Mercury: Story = {
+  args: {
+    ringClassName: "fill-violet-200",
+    tokenClassName: "fill-violet-500",
+    radii: { extRadius: 40, intRadius: 25 },
+    spanAngle: 360 * (7 / 24),
     divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
   },
 };
