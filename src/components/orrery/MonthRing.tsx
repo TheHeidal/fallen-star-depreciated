@@ -1,18 +1,19 @@
-import { ReactElement, JSXElementConstructor, ReactNode } from "react";
-import { Radii, PartialDivisonProps } from "./orreryTypes";
-import Ring from "./Ring";
-import RingDivisions from "./RingDivisions";
+import { Radii } from "./orreryTypes";
+import Ring, { ringProps } from "./Ring";
+import RingDivisions, { ringDivisionProps } from "./RingDivisions";
 import RingSegment from "./RingSegment";
 
-export interface MonthRingProps {
+export type MonthRingProps = {
   radii: Radii;
-  ring?: React.SVGProps<SVGPathElement>;
-  divisions?: PartialDivisonProps;
-}
+  ringProps?: Omit<ringProps, keyof Radii>;
+  divisionsProps: Omit<ringDivisionProps, keyof Radii>;
+  segmentsProps: Omit<ringDivisionProps, keyof Radii>;
+};
+
 export default function MonthRing({
   radii,
-  ring = { className: "fill-slate-100" },
-  divisions = { divisions: 12 },
+  ringProps: ring = { className: "fill-slate-100" },
+  divisionsProps: divisions = { divisions: 12 },
 }: MonthRingProps) {
   let monthSections: JSX.Element[] = [];
   for (let i = 0; i < divisions.divisions; i++) {

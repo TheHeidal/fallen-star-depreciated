@@ -1,11 +1,15 @@
 import { Radii } from "./orreryTypes";
 
-export default function Ring(props: Radii & React.SVGProps<SVGPathElement>) {
-  const extRadius = props.extRadius;
-  const intRadius = props.intRadius;
+export type ringProps = Radii & React.SVGProps<SVGPathElement>;
+
+export default function Ring({
+  extRadius,
+  intRadius,
+  ...restProps
+}: ringProps) {
   return (
     <path
-      {...props}
+      {...restProps}
       d={`
     M 0 ${extRadius}
     A ${extRadius} ${extRadius} 0 1 0 0 ${-extRadius}

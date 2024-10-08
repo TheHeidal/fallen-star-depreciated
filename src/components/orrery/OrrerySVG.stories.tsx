@@ -8,8 +8,8 @@ const RingsData: CelestialBodyProps[] = [
   {
     ...CBStories.CBData,
     radii: { extRadius: 100, intRadius: 80 },
-    ringClassName: "fill-slate-700",
-    tokenClassName: "fill-slate-500",
+    ringProps: { className: "fill-slate-700" },
+    pieceProps: { className: "fill-slate-500" },
     spanAngle: 10,
     tokenInitialPosition: -5,
     divisions: [DivisionsData.div_36_solid],
@@ -17,8 +17,8 @@ const RingsData: CelestialBodyProps[] = [
   {
     ...CBStories.CBData,
     id: "Jupiter",
-    ringClassName: "fill-orange-300",
-    tokenClassName: "fill-amber-600",
+    ringProps: { className: "fill-orange-300" },
+    pieceProps: { className: "fill-amber-600" },
     radii: { extRadius: 85, intRadius: 65 },
     spanAngle: 360 * (3 / 48),
     divisions: [
@@ -30,8 +30,8 @@ const RingsData: CelestialBodyProps[] = [
   {
     ...CBStories.CBData,
     id: "Mars",
-    ringClassName: "fill-red-300",
-    tokenClassName: "fill-red-500",
+    ringProps: { className: "fill-red-300" },
+    pieceProps: { className: "fill-red-500" },
     radii: { extRadius: 70, intRadius: 50 },
     spanAngle: 360 * (3 / 24),
     divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
@@ -39,16 +39,16 @@ const RingsData: CelestialBodyProps[] = [
   {
     ...CBStories.CBData,
     id: "Venus",
-    ringClassName: "fill-green-200",
-    tokenClassName: "fill-green-600",
+    ringProps: { className: "fill-green-200" },
+    pieceProps: { className: "fill-green-600" },
     radii: { extRadius: 55, intRadius: 35 },
     spanAngle: 360 * (5 / 24),
     divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
   },
   {
     ...CBStories.CBData,
-    ringClassName: "fill-violet-200",
-    tokenClassName: "fill-violet-500",
+    ringProps: { className: "fill-violet-200" },
+    pieceProps: { className: "fill-violet-500" },
     radii: { extRadius: 40, intRadius: 25 },
     spanAngle: 360 * (7 / 24),
     divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
@@ -96,8 +96,8 @@ export const Jupiter: Story = {
       {
         ...CBStories.CBData,
         id: "Jupiter",
-        ringClassName: "fill-orange-300",
-        tokenClassName: "fill-amber-600",
+        ringProps: "fill-orange-300",
+        pieceProps: "fill-amber-600",
         radii: { extRadius: 85, intRadius: 70 },
         spanAngle: 360 * (3 / 48),
         divisions: [
@@ -115,7 +115,7 @@ export const Jupiter: Story = {
 //     childrenList: [
 //       {
 //         id: "Saturn",
-//         ringClassName: "fill-slate-700",
+//         ringProps: "fill-slate-700",
 //         tokenClassName: "fill-slate-500",
 //         extRadius: 100,
 //         intRadius: 85,
@@ -125,7 +125,7 @@ export const Jupiter: Story = {
 //       },
 //       {
 //         id: "Jupiter",
-//         ringClassName: "fill-orange-300",
+//         ringProps: "fill-orange-300",
 //         tokenClassName: "fill-amber-600",
 //         extRadius: 85,
 //         intRadius: 70,
@@ -139,7 +139,7 @@ export const Jupiter: Story = {
 //       },
 //       {
 //         id: "Mars",
-//         ringClassName: "fill-red-300",
+//         ringProps: "fill-red-300",
 //         tokenClassName: "fill-red-500",
 //         extRadius: 70,
 //         intRadius: 55,
@@ -152,7 +152,7 @@ export const Jupiter: Story = {
 //       },
 //       {
 //         id: "Venus",
-//         ringClassName: "fill-green-200",
+//         ringProps: "fill-green-200",
 //         tokenClassName: "fill-green-600",
 //         extRadius: 55,
 //         intRadius: 40,
@@ -165,7 +165,7 @@ export const Jupiter: Story = {
 //       },
 //       {
 //         id: "Mercury",
-//         ringClassName: "fill-violet-200",
+//         ringProps: "fill-violet-200",
 //         tokenClassName: "fill-violet-500",
 //         extRadius: 40,
 //         intRadius: 25,

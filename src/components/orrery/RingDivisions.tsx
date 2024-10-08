@@ -1,5 +1,8 @@
 import { polarToCartesian } from "./angleMisc";
-import { PartialDivisonProps, Radii } from "./orreryTypes";
+import { Radii } from "./orreryTypes";
+
+export type ringDivisionProps = { divisions: number } & Radii &
+  React.SVGProps<SVGPathElement>;
 
 export default function RingDivisions({
   divisions,
@@ -7,7 +10,7 @@ export default function RingDivisions({
   intRadius,
   className = "stroke-black stroke-1",
   ...props
-}: PartialDivisonProps & Radii) {
+}: ringDivisionProps) {
   const divisionAngle = 360 / divisions;
   let divisionPaths = "";
   for (let angle = 0; angle < 360; angle += divisionAngle) {
