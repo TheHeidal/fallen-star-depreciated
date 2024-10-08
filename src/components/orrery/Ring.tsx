@@ -1,6 +1,6 @@
-import { RingProps } from "./orreryTypes";
+import { Radii } from "./orreryTypes";
 
-export default function Ring(props: RingProps) {
+export default function Ring(props: Radii & React.SVGProps<SVGPathElement>) {
   const extRadius = props.extRadius;
   const intRadius = props.intRadius;
   return (

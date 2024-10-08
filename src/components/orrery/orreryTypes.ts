@@ -11,6 +11,7 @@ export interface PartialDivisonProps extends React.SVGProps<SVGPathElement> {
   divisions: number;
 }
 
-export interface RingProps extends Radii, React.SVGProps<SVGPathElement> {}
-
-export interface RingSegmentProps extends SpanAngle, RingProps {}
+export interface RingSegmentProps
+  extends SpanAngle,
+    Radii,
+    React.SVGProps<SVGPathElement> {}
