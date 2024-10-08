@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { motion } from "framer-motion";
 import Ring from "./Ring";
-import RingPartial from "./RingPartial";
+import RingSegment from "./RingSegment";
 import RingDivisions from "./RingDivisions";
 import { PartialDivisonProps, Radii, SpanAngle } from "./orreryTypes";
 
@@ -56,13 +56,13 @@ export default function CelestialBody(props: CelestialBodyProps) {
         animate={{ rotate: state.tokenPosition }}
         transition={{ type: "spring", bounce: props.bounce }}>
         <g transform={`rotate(${props.spanAngle / 2})`}>
-          <RingPartial
+          <RingSegment
             className={props.halfClassName}
             {...props.radii}
             spanAngle={180}
             onClick={() => dispatch({ type: "CW", span: props.spanAngle })}
           />
-          <RingPartial
+          <RingSegment
             className={props.halfClassName}
             {...props.radii}
             spanAngle={-180}
@@ -70,7 +70,7 @@ export default function CelestialBody(props: CelestialBodyProps) {
           />
         </g>
         {/* Token */}
-        <RingPartial
+        <RingSegment
           className={props.tokenClassName}
           {...props.radii}
           spanAngle={props.spanAngle}

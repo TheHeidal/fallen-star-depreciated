@@ -1,10 +1,10 @@
 import { JSX } from "react/jsx-runtime";
-import RingPartial from "./RingPartial";
+import RingSegment from "./RingSegment";
 import { Meta, StoryObj } from "@storybook/react";
 
-const meta: Meta<typeof RingPartial> = {
-  component: RingPartial,
-  title: "Partial Ring",
+const meta: Meta<typeof RingSegment> = {
+  component: RingSegment,
+  title: "Ring Segment",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
   decorators: [
@@ -23,7 +23,7 @@ const meta: Meta<typeof RingPartial> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof RingPartial>;
+type Story = StoryObj<typeof RingSegment>;
 
 export const Jupiter: Story = {
   args: {

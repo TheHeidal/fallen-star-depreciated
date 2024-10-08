@@ -1,7 +1,7 @@
 import { polarToCartesian } from "./angleMisc";
 import { RingSegmentProps } from "./orreryTypes";
 
-export default function RingPartial(props: RingSegmentProps) {
+export default function RingSegment(props: RingSegmentProps) {
   return (
     <path
       {...props}

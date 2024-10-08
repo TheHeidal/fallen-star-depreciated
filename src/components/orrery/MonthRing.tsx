@@ -2,7 +2,7 @@ import { ReactElement, JSXElementConstructor, ReactNode } from "react";
 import { Radii, PartialDivisonProps } from "./orreryTypes";
 import Ring from "./Ring";
 import RingDivisions from "./RingDivisions";
-import RingPartial from "./RingPartial";
+import RingSegment from "./RingSegment";
 
 export interface MonthRingProps {
   radii: Radii;
@@ -18,7 +18,7 @@ export default function MonthRing({
   for (let i = 0; i < divisions.divisions; i++) {
     monthSections = monthSections.concat(
       <g key={i} transform={`rotate(${i * (360 / divisions.divisions)})`}>
-        <RingPartial
+        <RingSegment
           {...radii}
           spanAngle={360 / divisions.divisions}
           className="fill-blue-200 transition-opacity opacity-0 hover:opacity-50"
