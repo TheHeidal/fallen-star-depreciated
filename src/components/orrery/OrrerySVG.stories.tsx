@@ -8,7 +8,7 @@ const meta: Meta<typeof OrrerySVG> = {
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
   args: {
-    className: "size-100 bg-gray-500 ",
+    className: "size-[500px] bg-gray-500 ",
     viewBox: "-150 -150 300 300",
     cbList: [
       CBStories.CBData.saturn,
@@ -24,6 +24,18 @@ export default meta;
 type Story = StoryObj<typeof OrrerySVG>;
 
 export const Default: Story = {};
+export const RotatingRings: Story = { args: { moveRings: true } };
+export const ThinRings: Story = {
+  args: {
+    cbList: [
+      { ...CBStories.CBData.saturn, radii: { extRadius: 100, intRadius: 88 } },
+      { ...CBStories.CBData.jupiter, radii: { extRadius: 85, intRadius: 73 } },
+      { ...CBStories.CBData.mars, radii: { extRadius: 70, intRadius: 58 } },
+      { ...CBStories.CBData.venus, radii: { extRadius: 55, intRadius: 43 } },
+      { ...CBStories.CBData.mercury, radii: { extRadius: 40, intRadius: 28 } },
+    ],
+  },
+};
 
 export const Jupiter: Story = {
   args: {

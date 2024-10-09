@@ -1,68 +1,70 @@
-import CelestialBody, { CBProps } from "./CelestialBody";
+import CelestialBody from "./CelestialBody";
 import { Meta, StoryObj } from "@storybook/react";
 import { DivisionsData } from "./RingDivisions.stories";
 
+const saturn = {
+  radii: { extRadius: 100, intRadius: 85 },
+  trackProps: {
+    ringProps: { className: "fill-slate-700" },
+    divisions: [DivisionsData.div_36_solid],
+  },
+  tokenProps: { pieceProps: { className: "fill-slate-500" }, spanAngle: 10 },
+  tokenInitialPosition: -5,
+};
+const jupiter = {
+  radii: { extRadius: 85, intRadius: 70 },
+  trackProps: {
+    ringProps: { className: "fill-orange-300" },
+    divisions: [
+      DivisionsData.div_12_solid,
+      DivisionsData.div_24_dashed,
+      DivisionsData.div_48_dashed,
+    ],
+  },
+  tokenProps: {
+    pieceProps: { className: "fill-amber-600" },
+    spanAngle: 360 * (3 / 48),
+  },
+};
+const mars = {
+  radii: { extRadius: 70, intRadius: 55 },
+  trackProps: {
+    ringProps: { className: "fill-red-300" },
+    divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
+  },
+  tokenProps: {
+    pieceProps: { className: "fill-red-500" },
+    spanAngle: 360 * (3 / 24),
+  },
+};
+const venus = {
+  radii: { extRadius: 55, intRadius: 40 },
+  trackProps: {
+    ringProps: { className: "fill-green-200" },
+    divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
+  },
+  tokenProps: {
+    pieceProps: { className: "fill-green-600" },
+    spanAngle: 360 * (5 / 24),
+  },
+};
+const mercury = {
+  radii: { extRadius: 40, intRadius: 25 },
+  trackProps: {
+    ringProps: { className: "fill-violet-200" },
+    divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
+  },
+  tokenProps: {
+    pieceProps: { className: "fill-violet-500" },
+    spanAngle: 360 * (7 / 24),
+  },
+};
 export const CBData = {
-  saturn: {
-    radii: { extRadius: 100, intRadius: 85 },
-    trackProps: {
-      ringProps: { className: "fill-slate-700" },
-      divisions: [DivisionsData.div_36_solid],
-    },
-    tokenProps: { pieceProps: { className: "fill-slate-500" }, spanAngle: 10 },
-    tokenInitialPosition: -5,
-    tokenPosition: -5,
-  },
-  jupiter: {
-    radii: { extRadius: 85, intRadius: 70 },
-    trackProps: {
-      ringProps: { className: "fill-orange-300" },
-      divisions: [
-        DivisionsData.div_12_solid,
-        DivisionsData.div_24_dashed,
-        DivisionsData.div_48_dashed,
-      ],
-    },
-    tokenProps: {
-      pieceProps: { className: "fill-amber-600" },
-      spanAngle: 360 * (3 / 48),
-    },
-  },
-  mars: {
-    radii: { extRadius: 70, intRadius: 55 },
-    trackProps: {
-      ringProps: { className: "fill-red-300" },
-      divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
-    },
-    tokenProps: {
-      pieceProps: { className: "fill-red-500" },
-      spanAngle: 360 * (3 / 24),
-    },
-  },
-
-  venus: {
-    radii: { extRadius: 55, intRadius: 40 },
-    trackProps: {
-      ringProps: { className: "fill-green-200" },
-      divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
-    },
-    tokenProps: {
-      pieceProps: { className: "fill-green-600" },
-      spanAngle: 360 * (5 / 24),
-    },
-  },
-
-  mercury: {
-    radii: { extRadius: 40, intRadius: 25 },
-    trackProps: {
-      ringProps: { className: "fill-violet-200" },
-      divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
-    },
-    tokenProps: {
-      pieceProps: { className: "fill-violet-500" },
-      spanAngle: 360 * (7 / 24),
-    },
-  },
+  saturn: saturn,
+  jupiter: jupiter,
+  mars: mars,
+  venus: venus,
+  mercury: mercury,
 };
 
 const meta: Meta<typeof CelestialBody> = {
