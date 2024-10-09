@@ -6,10 +6,9 @@ export type TrackProps = React.SVGProps<SVGPathElement> & {
   radii: Radii;
   ringProps?: Omit<ringProps, keyof Radii>;
   divisions?: Omit<ringDivisionProps, keyof Radii>[];
-  bounce: number;
 };
 
-export function Track(props: TrackProps) {
+export default function Track(props: TrackProps) {
   return (
     <g>
       <Ring {...props.radii} {...props.ringProps} />

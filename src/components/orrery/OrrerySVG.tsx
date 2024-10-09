@@ -1,34 +1,27 @@
-import { ReactElement, useReducer } from "react";
-import { motion } from "framer-motion";
-import CelestialBody, { CelestialBodyProps } from "./CelestialBody";
+import { useReducer } from "react";
+import CelestialBody, { CBProps } from "./CelestialBody";
 import MonthRing, { MonthRingProps } from "./MonthRing";
+import { reducer as orreryReducer } from "./reducer";
 
 interface OrrerySVGProps extends React.SVGProps<SVGSVGElement> {
-  cbList: CelestialBodyProps[];
-  advancer?: ReactElement;
+  cbList: Omit<CBProps, "tokenPosition" | "trackPosition">[];
   monthProps?: MonthRingProps;
-  bounce?: number;
-  duration?: number;
 }
 
-function reducer(state: number, action: { type: "increment" | "decrement" }) {
-  switch (action.type) {
-    case "increment":
-      return state + 1;
-    case "decrement":
-      return state - 1;
-  }
-}
+// function reducer(
+//   state: CelestialBodyState,
+//   action: { type: "CW" | "WS"; span: number }
+// ): CelestialBodyState {
+//   switch (action.type) {
+//     case "CW":
+//       return { tokenPosition: state.tokenPosition + action.span };
+//     case "WS":
+//       return { tokenPosition: state.tokenPosition - action.span };
+//   }
+// }
 
-export default function OrrerySVG({
-  cbList,
-  advancer,
-  bounce = 0.15,
-  duration = 0.8,
-
-  ...restProps
-}: OrrerySVGProps) {
-  const [state, dispatch] = useReducer(reducer, 0);
+export default function OrrerySVG({ cbList, ...restProps }: OrrerySVGProps) {
+  const [state, dispatch] = useReducer(orreryReducer, 0);
 
   return (
     <svg {...restProps}>
@@ -37,16 +30,18 @@ export default function OrrerySVG({
         onClick={() => {
           dispatch({ type: "increment" });
         }}>
-        {advancer}
+        <circle
+          className="fill-white transition-colors hover:fill-blue-200"
+          cx={0}
+          cy={0}
+          r={25}
+        />
       </g>
       {cbList.map((cbProps, index) => {
         return (
-          <motion.g
-            initial={{ rotate: 0 }}
-            animate={{ rotate: state * cbProps.spanAngle }}
-            transition={{ type: "spring", bounce: bounce, duration: duration }}>
-            <CelestialBody key={index} {...cbProps} />
-          </motion.g>
+          <g key={index}>
+            <CelestialBody {...cbProps} />
+          </g>
         );
       })}
     </svg>

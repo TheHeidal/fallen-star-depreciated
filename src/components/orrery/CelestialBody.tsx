@@ -1,27 +1,61 @@
-import { ringProps } from "./Ring";
-import { ringSegmentProps } from "./RingSegment";
-import { ringDivisionProps } from "./RingDivisions";
-import { Radii, SpanAngle } from "./orreryTypes";
-import { Track } from "./Track";
-import Token from "./Token";
+import Track, { TrackProps } from "./Track";
+import Token, { TokenProps } from "./Token";
+import { Radii } from "./orreryTypes";
+import { motion } from "framer-motion";
 
-export interface CelestialBodyProps
-  extends SpanAngle,
-    React.SVGProps<SVGPathElement> {
+export type CBProps = {
   radii: Radii;
-  ringProps?: Omit<ringProps, keyof Radii>;
-  halfProps?: Omit<ringSegmentProps, keyof Radii | keyof SpanAngle>;
-  pieceProps?: Omit<ringSegmentProps, keyof Radii | keyof SpanAngle>;
-  tokenInitialPosition?: number;
-  divisions?: Omit<ringDivisionProps, keyof Radii>[];
-  bounce: number;
-}
+  trackProps: Omit<TrackProps, "radii">;
+  tokenProps: Omit<TokenProps, "radii">;
 
-export default function CelestialBody(props: CelestialBodyProps) {
+  trackInitialPosition?: number;
+  trackPosition?: number;
+  trackBounce?: number;
+  trackDuration?: number;
+
+  tokenInitialPosition?: number;
+  tokenPosition?: number;
+  tokenBounce?: number;
+  tokenDuration?: number;
+};
+
+export default function CelestialBody({
+  radii,
+  trackProps,
+  tokenProps,
+
+  trackInitialPosition = 0,
+  trackPosition = 0,
+  trackBounce = 0.15,
+  trackDuration = 0.8,
+
+  tokenInitialPosition = 0,
+  tokenPosition = 0,
+  tokenBounce = 0.15,
+  tokenDuration = 0.8,
+}: CBProps) {
   return (
     <>
-      <Track {...props} />
-      <Token {...props} />;
+      <motion.g
+        initial={{ rotate: trackInitialPosition }}
+        animate={{ rotate: trackPosition }}
+        transition={{
+          type: "spring",
+          bounce: trackBounce,
+          duration: trackDuration,
+        }}>
+        <Track radii={radii} {...trackProps} />
+      </motion.g>
+      <motion.g
+        initial={{ rotate: tokenInitialPosition }}
+        animate={{ rotate: tokenPosition }}
+        transition={{
+          type: "spring",
+          bounce: tokenBounce,
+          duration: tokenDuration,
+        }}>
+        <Token radii={radii} {...tokenProps} />
+      </motion.g>
     </>
   );
 }
