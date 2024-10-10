@@ -1,5 +1,5 @@
-import { polarToCartesian } from "./angleMisc";
-import { Radii } from "./orreryTypes";
+import { polarToCartesian } from "../angleMisc";
+import { Radii } from "../orreryTypes";
 
 export type ringDivisionProps = { divisions: number } & Radii &
   React.SVGProps<SVGPathElement>;

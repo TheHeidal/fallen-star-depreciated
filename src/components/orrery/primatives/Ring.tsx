@@ -1,4 +1,4 @@
-import { Radii } from "./orreryTypes";
+import { Radii } from "../orreryTypes";
 
 export type ringProps = Radii & React.SVGProps<SVGPathElement>;
 

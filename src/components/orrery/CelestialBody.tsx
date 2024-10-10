@@ -10,13 +10,13 @@ export type CBProps = {
 
   trackInitialPosition?: number;
   trackPosition?: number;
-  trackBounce?: number;
-  trackDuration?: number;
 
   tokenInitialPosition?: number;
   tokenPosition?: number;
+
+  trackBounce?: number;
   tokenBounce?: number;
-  tokenDuration?: number;
+  duration?: number;
 };
 
 export default function CelestialBody({
@@ -27,12 +27,11 @@ export default function CelestialBody({
   trackInitialPosition = 0,
   trackPosition = 0,
   trackBounce = 0.15,
-  trackDuration = 0.8,
+  duration = 3,
 
   tokenInitialPosition = 0,
   tokenPosition = 0,
   tokenBounce = 0.15,
-  tokenDuration = 0.8,
 }: CBProps) {
   return (
     <>
@@ -42,7 +41,7 @@ export default function CelestialBody({
         transition={{
           type: "spring",
           bounce: trackBounce,
-          duration: trackDuration,
+          duration: duration,
         }}>
         <Track radii={radii} {...trackProps} />
       </motion.g>
@@ -52,7 +51,7 @@ export default function CelestialBody({
         transition={{
           type: "spring",
           bounce: tokenBounce,
-          duration: tokenDuration,
+          duration: duration,
         }}>
         <Token radii={radii} {...tokenProps} />
       </motion.g>

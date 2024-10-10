@@ -1,5 +1,5 @@
 import { OrrerySVG } from "./OrrerySVG";
-import Ring from "./Ring";
+import Ring from "./primatives/Ring";
 
 export default function Orrery() {
   return (

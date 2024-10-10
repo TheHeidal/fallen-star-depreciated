@@ -1,6 +1,6 @@
 import { Radii } from "./orreryTypes";
-import Ring, { ringProps } from "./Ring";
-import RingDivisions, { ringDivisionProps } from "./RingDivisions";
+import Ring, { ringProps } from "./primatives/Ring";
+import RingDivisions, { ringDivisionProps } from "./primatives/RingDivisions";
 
 export type TrackProps = React.SVGProps<SVGPathElement> & {
   radii: Radii;

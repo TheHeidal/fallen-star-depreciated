@@ -1,7 +1,7 @@
 import { Radii } from "./orreryTypes";
-import Ring, { ringProps } from "./Ring";
-import RingDivisions, { ringDivisionProps } from "./RingDivisions";
-import RingSegment from "./RingSegment";
+import Ring, { ringProps } from "./primatives/Ring";
+import RingDivisions, { ringDivisionProps } from "./primatives/RingDivisions";
+import RingSegment from "./primatives/RingSegment";
 
 export type MonthRingProps = {
   radii: Radii;

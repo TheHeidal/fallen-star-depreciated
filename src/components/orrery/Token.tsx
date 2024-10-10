@@ -1,5 +1,5 @@
 import { SpanAngle, Radii } from "./orreryTypes";
-import RingSegment, { ringSegmentProps } from "./RingSegment";
+import RingSegment, { ringSegmentProps } from "./primatives/RingSegment";
 
 export type TokenProps = SpanAngle & {
   radii: Radii;

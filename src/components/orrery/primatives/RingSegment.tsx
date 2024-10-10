@@ -1,5 +1,5 @@
-import { polarToCartesian } from "./angleMisc";
-import { Radii, SpanAngle } from "./orreryTypes";
+import { polarToCartesian } from "../angleMisc";
+import { Radii, SpanAngle } from "../orreryTypes";
 
 export type ringSegmentProps = SpanAngle &
   Radii &

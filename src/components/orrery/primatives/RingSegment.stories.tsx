@@ -4,7 +4,7 @@ import { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof RingSegment> = {
   component: RingSegment,
-  title: "Ring Segment",
+  title: "Primitives/Ring Segment",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
   decorators: [

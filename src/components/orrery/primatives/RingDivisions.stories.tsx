@@ -5,27 +5,27 @@ export const DivisionsData = {
   div_36_solid: {
     divisions: 36,
     transform: "rotate(5)",
-    className: "stroke-white stroke-1",
+    className: "stroke-neutral-100 stroke-1",
   },
   div_12_solid: {
     divisions: 12,
-    className: "stroke-black stroke-1",
+    className: "stroke-neutral-950 stroke-1",
   },
   div_24_dashed: {
     divisions: 12,
     transform: `rotate(${360 / 24})`,
-    className: "stroke-black stroke-[0.5px] [stroke-dasharray:2,2]",
+    className: "stroke-neutral-950 stroke-[0.5px] [stroke-dasharray:2,2]",
   },
   div_48_dashed: {
     divisions: 24,
     transform: `rotate(${360 / 48})`,
-    className: "stroke-black stroke-[0.5px] [stroke-dasharray:1,1]",
+    className: "stroke-neutral-950 stroke-[0.5px] [stroke-dasharray:1,1]",
   },
 };
 
 const meta: Meta<typeof RingDivisions> = {
   component: RingDivisions,
-  title: "Divisions",
+  title: "Primitives/Divisions",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
   decorators: [

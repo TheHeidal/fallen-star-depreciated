@@ -3,14 +3,14 @@ import CelestialBody, { CBProps } from "./CelestialBody";
 import MonthRing, { MonthRingProps } from "./MonthRing";
 
 type OrreryState = {
-  id: string;
+  id: number;
   bodySpan: number;
   trackPosition: number;
   tokenPosition: number;
 }[];
 
 type OrreryAction = {
-  id?: string;
+  id?: number;
   scope: "track" | "token" | "both";
 } & ({ type: "increment" | "decrement" } | { type: "set"; newValue: number });
 
@@ -48,16 +48,19 @@ interface OrrerySVGProps extends React.SVGProps<SVGSVGElement> {
   moveRings?: boolean;
   cbList: Omit<CBProps, "tokenPosition" | "trackPosition">[];
   monthProps?: MonthRingProps;
+  miscCelestialBodyProps?: Partial<CBProps>;
 }
 
 export default function OrrerySVG({
   moveRings = false,
   cbList: cbLNoId,
+  monthProps,
+  miscCelestialBodyProps,
   ...restProps
 }: OrrerySVGProps) {
   const cbList = cbLNoId.map(({ ...rest }, index) => {
     return {
-      id: `${index}`,
+      id: index,
       ...rest,
     };
   });
@@ -80,7 +83,7 @@ export default function OrrerySVG({
 
   return (
     <svg {...restProps}>
-      {restProps.monthProps && <MonthRing {...restProps.monthProps} />}
+      {monthProps && <MonthRing {...monthProps} />}
       <g
         onClick={() => {
           dispatch({ scope: "both", type: "increment" });
@@ -110,6 +113,7 @@ export default function OrrerySVG({
         return (
           <g key={index}>
             <CelestialBody
+              {...miscCelestialBodyProps}
               trackInitialPosition={initialState[index].trackPosition}
               trackPosition={
                 moveRings

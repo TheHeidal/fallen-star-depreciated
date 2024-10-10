@@ -8,7 +8,7 @@ const meta: Meta<typeof OrrerySVG> = {
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
   args: {
-    className: "size-[500px] bg-gray-500 ",
+    className: "size-[500px] bg-neutral-100 ",
     viewBox: "-150 -150 300 300",
     cbList: [
       CBStories.CBData.saturn,
@@ -34,6 +34,9 @@ export const ThinRings: Story = {
       { ...CBStories.CBData.venus, radii: { extRadius: 55, intRadius: 43 } },
       { ...CBStories.CBData.mercury, radii: { extRadius: 40, intRadius: 28 } },
     ],
+
+    moveRings: true,
+    className: "size-[500px] bg-neutral-700",
   },
 };
 

@@ -4,7 +4,7 @@ import Ring from "./Ring";
 
 const meta: Meta<typeof Ring> = {
   component: Ring,
-  title: "Ring",
+  title: "Primitives/Ring",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
   decorators: [
