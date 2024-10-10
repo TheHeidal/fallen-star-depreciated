@@ -12,3 +12,4 @@ export type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 export interface PartialDivisonProps extends React.SVGProps<SVGPathElement> {
   divisions: number;
 }
+export type cbID = { id: number };

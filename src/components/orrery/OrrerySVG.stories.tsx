@@ -1,15 +1,21 @@
 import { Meta, StoryObj } from "@storybook/react";
 import OrrerySVG from "./OrrerySVG";
 import * as CBStories from "./CelestialBody.stories";
+import MonthRing from "./MonthRing";
 
 const meta: Meta<typeof OrrerySVG> = {
   component: OrrerySVG,
   title: "Orrery SVG",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
+  decorators: [
+    (Story) => (
+      <svg className="size-[500px] bg-neutral-400" viewBox="-150 -150 300 300">
+        {Story()}
+      </svg>
+    ),
+  ],
   args: {
-    className: "size-[500px] bg-neutral-100 ",
-    viewBox: "-150 -150 300 300",
     cbList: [
       CBStories.CBData.saturn,
       CBStories.CBData.jupiter,
@@ -23,7 +29,9 @@ const meta: Meta<typeof OrrerySVG> = {
 export default meta;
 type Story = StoryObj<typeof OrrerySVG>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: { monthProps: { radii: { intRadius: 100, extRadius: 130 } } },
+};
 export const RotatingRings: Story = { args: { moveRings: true } };
 export const ThinRings: Story = {
   args: {
