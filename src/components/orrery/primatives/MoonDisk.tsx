@@ -14,7 +14,7 @@ export default function MoonDisk({
   lightClassName?: string;
   darkClassName?: string;
 }) {
-  const waxing = unadjustedProgress < 0.5;
+  const waxing = unadjustedProgress % 1 < 0.5;
   const progress = 1 - ((4 * unadjustedProgress) % 2);
 
   return (
