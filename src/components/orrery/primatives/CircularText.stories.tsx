@@ -17,6 +17,7 @@ const meta = {
       </svg>
     ),
   ],
+  argTypes: { inverted: { controls: "boolean" } },
 } satisfies Meta<typeof CircularText>;
 
 export default meta;
