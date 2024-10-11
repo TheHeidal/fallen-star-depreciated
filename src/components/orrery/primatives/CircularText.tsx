@@ -9,7 +9,7 @@ export default function CircularText({
   ...props
 }: {
   radius: number;
-  children?: string;
+  children?: React.ReactNode;
 } & React.SVGTextElementAttributes<SVGTextElement>) {
   const id = useId();
   return (
