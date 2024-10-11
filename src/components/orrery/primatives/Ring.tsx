@@ -12,11 +12,11 @@ export default function Ring({
       {...restProps}
       d={`
     M 0 ${extRadius}
-    A ${extRadius} ${extRadius} 0 1 0 0 ${-extRadius}
-    A ${extRadius} ${extRadius} 0 1 0 0 ${extRadius}
+    A 1 1 0 1 0 0 ${-extRadius}
+    A 1 1 0 1 0 0 ${extRadius}
     M 0 ${intRadius}
-    A ${intRadius} ${intRadius} 0 1 1 0 ${-intRadius}
-    A ${intRadius} ${intRadius} 0 1 1 0 ${intRadius}
+    A 1 1 0 1 1 0 ${-intRadius}
+    A 1 1 0 1 1 0 ${intRadius}
     `}
     />
   );
