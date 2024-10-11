@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import MonthRing from "./MonthRing";
+import { MONTHS } from "./Constants";
 
 const meta = {
   component: MonthRing,
@@ -13,6 +14,7 @@ const meta = {
       </svg>
     ),
   ],
+  args: { radii: { intRadius: 100, extRadius: 130 } },
 } satisfies Meta<typeof MonthRing>;
 
 export default meta;
@@ -20,5 +22,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: { radii: { intRadius: 100, extRadius: 130 } },
+  args: {
+    months: MONTHS,
+  },
 };
+export const Empty: Story = {};

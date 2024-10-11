@@ -1,9 +1,10 @@
 import { polarToCartesian } from "../angleMisc";
 import { Radii, SpanAngle } from "../orreryTypes";
 
-export type ringSegmentProps = SpanAngle &
-  Radii &
-  React.SVGProps<SVGPathElement>;
+export interface ringSegmentProps
+  extends SpanAngle,
+    Radii,
+    Omit<React.SVGProps<SVGPathElement>, "d"> {}
 
 export default function RingSegment({
   spanAngle,

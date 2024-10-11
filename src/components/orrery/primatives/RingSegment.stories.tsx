@@ -27,13 +27,11 @@ type Story = StoryObj<typeof RingSegment>;
 
 export const Jupiter: Story = {
   args: {
-    id: "Jupiter",
     spanAngle: 360 * (3 / 48),
   },
 };
 export const Half: Story = {
   args: {
-    id: "Half",
     spanAngle: 180,
   },
 };
@@ -49,7 +47,6 @@ export const Negative: Story = {
 };
 export const GreaterThanHalf: Story = {
   args: {
-    id: "GreaterThan",
     spanAngle: 270,
   },
 };

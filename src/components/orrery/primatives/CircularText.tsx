@@ -1,5 +1,11 @@
 import React, { useId } from "react";
 
+export interface CircularTextProps
+  extends React.SVGTextElementAttributes<SVGTextElement> {
+  radius: number;
+  children?: React.ReactNode;
+}
+
 /**
  * A line of text curving around a circle, centered at 0, -radius
  */
@@ -7,10 +13,7 @@ export default function CircularText({
   radius,
   children,
   ...props
-}: {
-  radius: number;
-  children?: React.ReactNode;
-} & React.SVGTextElementAttributes<SVGTextElement>) {
+}: CircularTextProps) {
   const id = useId();
   return (
     <>
