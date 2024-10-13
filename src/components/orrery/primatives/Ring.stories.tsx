@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react/*";
-import { fn } from "@storybook/test";
-import Ring from "./Ring";
+import Ring, { variants as ringVariants } from "./Ring";
 
 const meta: Meta<typeof Ring> = {
   component: Ring,
@@ -22,30 +21,14 @@ type Story = StoryObj<typeof Ring>;
 
 export const Saturn: Story = {
   args: {
-    id: "Saturn",
-    className: "fill-slate-600",
+    className: ringVariants({ color: "saturn" }),
     extRadius: 100,
     intRadius: 85,
   },
 };
-export const ClassnameJupiter: Story = {
+export const Jupiter: Story = {
   args: {
-    className: "fill-orange-300",
-    extRadius: 85,
-    intRadius: 70,
-  },
-};
-export const VariantJupiter: Story = {
-  args: {
-    vColor: "jupiter",
-    extRadius: 85,
-    intRadius: 70,
-  },
-};
-export const ClassOverwrite: Story = {
-  args: {
-    className: "fill-slate-600",
-    vColor: "jupiter",
+    className: ringVariants({ color: "jupiter" }),
     extRadius: 85,
     intRadius: 70,
   },
