@@ -16,7 +16,7 @@ const meta: Meta<typeof RingSegment> = {
     ),
   ],
   args: {
-    className: "fill-amber-600",
+    vColor: "jupiter",
     extRadius: 100,
     intRadius: 80,
   },

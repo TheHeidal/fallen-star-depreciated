@@ -28,10 +28,24 @@ export const Saturn: Story = {
     intRadius: 85,
   },
 };
-export const Jupiter = {
+export const ClassnameJupiter: Story = {
   args: {
-    id: "Jupiter",
     className: "fill-orange-300",
+    extRadius: 85,
+    intRadius: 70,
+  },
+};
+export const VariantJupiter: Story = {
+  args: {
+    vColor: "jupiter",
+    extRadius: 85,
+    intRadius: 70,
+  },
+};
+export const ClassOverwrite: Story = {
+  args: {
+    className: "fill-slate-600",
+    vColor: "jupiter",
     extRadius: 85,
     intRadius: 70,
   },
