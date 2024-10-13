@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react/*";
-import RingDivisions from "./RingDivisions";
+import RingDivisions, { variants as rdVariants } from "./RingDivisions";
 
 export const DivisionsData = {
   div_36_solid: {
     divisions: 36,
-    transform: "rotate(5)",
+    offsetAngle: 5,
     className: "stroke-neutral-100 stroke-1",
   },
   div_12_solid: {
@@ -13,19 +13,19 @@ export const DivisionsData = {
   },
   div_24_dashed: {
     divisions: 12,
-    transform: `rotate(${360 / 24})`,
+    offsetAngle: 15,
     className: "stroke-neutral-950 stroke-[0.5px] [stroke-dasharray:2,2]",
   },
   div_48_dashed: {
     divisions: 24,
-    transform: `rotate(${360 / 48})`,
+    offsetAngle: 7.5,
     className: "stroke-neutral-950 stroke-[0.5px] [stroke-dasharray:1,1]",
   },
 };
 
 const meta: Meta<typeof RingDivisions> = {
   component: RingDivisions,
-  title: "Primitives/Divisions",
+  title: "Primitives/Ring Dividing Lines",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
   decorators: [
@@ -46,15 +46,35 @@ export default meta;
 type Story = StoryObj<typeof RingDivisions>;
 
 export const div_36_solid: Story = {
-  args: { ...DivisionsData.div_36_solid },
+  args: {
+    divisions: 36,
+    offsetAngle: 5,
+    className: rdVariants({ color: "light" }),
+  },
 };
 
 export const div_12_solid: Story = {
-  args: { ...DivisionsData.div_12_solid },
+  args: {
+    divisions: 12,
+    className: rdVariants(),
+  },
 };
 export const div_24_dashed: Story = {
-  args: { ...DivisionsData.div_24_dashed },
+  args: {
+    divisions: 24,
+    className: rdVariants({
+      weight: "thin",
+      frequency: "dashes",
+    }),
+  },
 };
 export const div_48_dashed: Story = {
-  args: { ...DivisionsData.div_48_dashed },
+  args: {
+    divisions: 24,
+    offsetAngle: 7.5,
+    className: rdVariants({
+      weight: "thin",
+      frequency: "dots",
+    }),
+  },
 };

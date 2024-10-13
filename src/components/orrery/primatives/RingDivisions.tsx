@@ -1,15 +1,42 @@
+import { tv } from "tailwind-variants";
 import { polarToCartesian } from "../angleMisc";
 import { Radii } from "../orreryTypes";
 
-export type ringDivisionProps = { divisions: number } & Radii &
-  React.SVGProps<SVGPathElement>;
+export const variants = tv({
+  variants: {
+    color: {
+      dark: "stroke-neutral-950",
+      light: "stroke-neutral-100",
+    },
+    weight: {
+      mid: "stroke-[1px]",
+      thin: "stroke-[0.5px]",
+    },
+    frequency: {
+      line: "",
+      dashes: "[stroke-dasharray:2,2]",
+      dots: "[stroke-dasharray:2,2]",
+    },
+  },
+  defaultVariants: {
+    color: "dark",
+    weight: "mid",
+    frequency: "line",
+  },
+});
+
+export interface ringDivisionProps extends Radii {
+  divisions: number;
+  offsetAngle?: number;
+  className?: string;
+}
 
 export default function RingDivisions({
-  divisions,
   extRadius,
   intRadius,
-  className = "stroke-black stroke-1",
-  ...props
+  divisions,
+  offsetAngle = 0,
+  className = variants(),
 }: ringDivisionProps) {
   const divisionAngle = 360 / divisions;
   let divisionPaths = "";
@@ -20,5 +47,11 @@ export default function RingDivisions({
       L ${polarToCartesian(intRadius, angle).str}`
     );
   }
-  return <path className={className} {...props} d={divisionPaths} />;
+  return (
+    <path
+      className={className}
+      transform={`rotate(${offsetAngle})`}
+      d={divisionPaths}
+    />
+  );
 }
