@@ -1,4 +1,4 @@
-import { tv, VariantProps } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 import { Radii } from "../orreryTypes";
 
 export const variants = tv({
