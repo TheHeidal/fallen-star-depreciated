@@ -1,5 +1,5 @@
 import { JSX } from "react/jsx-runtime";
-import RingSegment from "./RingSegment";
+import RingSegment, { variants as rsVariants } from "./RingSegment";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof RingSegment> = {
@@ -16,7 +16,7 @@ const meta: Meta<typeof RingSegment> = {
     ),
   ],
   args: {
-    vColor: "jupiter",
+    className: rsVariants(),
     extRadius: 100,
     intRadius: 80,
   },

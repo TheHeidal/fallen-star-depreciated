@@ -2,9 +2,9 @@ import { tv, VariantProps } from "tailwind-variants";
 import { polarToCartesian } from "../angleMisc";
 import { Radii, SpanAngle } from "../orreryTypes";
 
-const segment = tv({
+export const variants = tv({
   variants: {
-    vColor: {
+    color: {
       month:
         "fill-blue-200 transition-opacity opacity-0 group-hover:opacity-50",
       saturn: "fill-slate-600",
@@ -16,26 +16,24 @@ const segment = tv({
         "fill-blue-200 transition-opacity opacity-0 hover:opacity-50",
     },
   },
+  defaultVariants: {
+    color: "jupiter",
+  },
 });
 
-export interface ringSegmentProps
-  extends SpanAngle,
-    Radii,
-    Omit<React.SVGProps<SVGPathElement>, "d">,
-    VariantProps<typeof segment> {}
+export interface ringSegmentProps extends SpanAngle, Radii {
+  className: string;
+}
 
 export default function RingSegment({
   spanAngle,
   intRadius,
   extRadius,
-  vColor,
-  className = "",
-  ...props
+  className = variants(),
 }: ringSegmentProps) {
   return (
     <path
-      className={`${segment({ vColor })} ${className}`}
-      {...props}
+      className={className}
       d={`
       M 0 ${-extRadius}
       A ${extRadius} ${extRadius}

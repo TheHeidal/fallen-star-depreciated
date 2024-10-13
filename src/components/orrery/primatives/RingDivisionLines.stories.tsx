@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react/*";
-import RingDivisions, { variants as rdVariants } from "./RingDivisions";
+import RingDivisionLines, { variants as rdVariants } from "./RingDivisionLines";
 
 export const DivisionsData = {
   div_36_solid: {
@@ -23,8 +23,8 @@ export const DivisionsData = {
   },
 };
 
-const meta: Meta<typeof RingDivisions> = {
-  component: RingDivisions,
+const meta: Meta<typeof RingDivisionLines> = {
+  component: RingDivisionLines,
   title: "Primitives/Ring Dividing Lines",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
@@ -43,7 +43,7 @@ const meta: Meta<typeof RingDivisions> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof RingDivisions>;
+type Story = StoryObj<typeof RingDivisionLines>;
 
 export const div_36_solid: Story = {
   args: {

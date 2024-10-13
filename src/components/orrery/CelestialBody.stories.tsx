@@ -1,6 +1,6 @@
 import CelestialBody from "./CelestialBody";
 import { Meta, StoryObj } from "@storybook/react";
-import { DivisionsData } from "./primatives/RingDivisions.stories";
+import { DivisionsData } from "./primatives/RingDivisionLines.stories";
 
 const saturn = {
   radii: { extRadius: 100, intRadius: 85 },
@@ -129,26 +129,3 @@ export const Mercury: Story = {
     },
   },
 };
-//       {
-//         id: "Venus",
-//         ringClassName: "fill-green-200",
-//         tokenClassName: "fill-green-600",
-//         extRadius: 55,
-//         intRadius: 40,
-//         spanAngle: 360 * (5 / 24),
-//         centerAngle: 360 * (2.5 / 24),
-//         divisions: [div_12_solid, div_24_dashed],
-//       },
-//       {
-//         id: "Mercury",
-//         ringClassName: "fill-violet-200",
-//         tokenClassName: "fill-violet-500",
-//         extRadius: 40,
-//         intRadius: 25,
-//         spanAngle: 360 * (7 / 24),
-//         centerAngle: 360 * (3.5 / 24),
-//         divisions: [div_12_solid, div_24_dashed],
-//       },
-//     ],
-//   },
-// };

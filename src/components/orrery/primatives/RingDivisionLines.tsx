@@ -25,19 +25,19 @@ export const variants = tv({
   },
 });
 
-export interface ringDivisionProps extends Radii {
+export interface ringDivisionLineProps extends Radii {
   divisions: number;
   offsetAngle?: number;
   className?: string;
 }
 
-export default function RingDivisions({
+export default function RingDivisionLines({
   extRadius,
   intRadius,
   divisions,
   offsetAngle = 0,
   className = variants(),
-}: ringDivisionProps) {
+}: ringDivisionLineProps) {
   const divisionAngle = 360 / divisions;
   let divisionPaths = "";
   for (let angle = 0; angle < 360; angle += divisionAngle) {

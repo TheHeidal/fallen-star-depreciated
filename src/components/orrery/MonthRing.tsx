@@ -1,14 +1,16 @@
 import MonthSegment, { MonthContent } from "./MonthSegment";
 import { Radii } from "./orreryTypes";
 import Ring, { ringProps } from "./primatives/Ring";
-import RingDivisions, { ringDivisionProps } from "./primatives/RingDivisions";
+import RingDivisionLines, {
+  ringDivisionLineProps,
+} from "./primatives/RingDivisionLines";
 import RingSegment from "./primatives/RingSegment";
 import { v4 as uuidv4 } from "uuid";
 
 export interface MonthRingProps {
   radii: Radii;
   ringProps?: Omit<ringProps, keyof Radii>;
-  divisionsProps?: Omit<ringDivisionProps, keyof Radii>;
+  divisionsProps?: Omit<ringDivisionLineProps, keyof Radii>;
   months?: MonthContent[][];
 }
 
@@ -48,7 +50,7 @@ export default function MonthRing({
     <g>
       <Ring {...radii} {...ringProps} />
       {monthSectionList}
-      <RingDivisions {...radii} {...divisionsProps} />
+      <RingDivisionLines {...radii} {...divisionsProps} />
     </g>
   );
 }
