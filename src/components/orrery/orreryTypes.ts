@@ -13,3 +13,10 @@ export interface PartialDivisonProps extends React.SVGProps<SVGPathElement> {
   divisions: number;
 }
 export type cbID = { id: number };
+
+export type PlanetVariants =
+  | "saturn"
+  | "jupiter"
+  | "mars"
+  | "venus"
+  | "mercury";

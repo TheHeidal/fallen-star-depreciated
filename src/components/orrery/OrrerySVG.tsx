@@ -2,22 +2,36 @@ import { useReducer } from "react";
 import CelestialBody, { CBProps } from "./CelestialBody";
 import MonthRing, { MonthRingProps } from "./MonthRing";
 import { OrreryState, reducer } from "./orreryReducer";
-import { cbID } from "./orreryTypes";
+import { cbID, PlanetVariants, Radii } from "./orreryTypes";
 import MoonDisk from "./primatives/MoonDisk";
 import Ring from "./primatives/Ring";
 
 interface OrrerySVGProps extends React.SVGProps<SVGSVGElement> {
+  cbSpecifications: CelestialBodySpecification[];
   cbList: Omit<CBProps, "tokenPosition" | "trackPosition">[];
   monthProps?: MonthRingProps;
   moveRings?: boolean;
   miscCelestialBodyProps?: Partial<CBProps>;
 }
 
+interface CelestialBodySpecification {
+  radii: Radii;
+  divisions: number;
+  divisonOffset?: number;
+  tokenSpanAngle: number;
+  tokeninitialAngle?: number;
+  variants: {
+    ring?: PlanetVariants;
+    divisions?: string;
+    token?: PlanetVariants;
+  };
+}
+
 export default function OrrerySVG({
-  moveRings = false,
   cbList: propCBList,
   monthProps,
   miscCelestialBodyProps,
+  moveRings = false,
   ...restProps
 }: OrrerySVGProps) {
   const cbList: (cbID & Omit<CBProps, "tokenPosition" | "trackPosition">)[] =
