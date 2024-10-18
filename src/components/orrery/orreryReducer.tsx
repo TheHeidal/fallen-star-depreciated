@@ -1,12 +1,14 @@
 import { cbID } from "./orreryTypes";
 
-export type OrreryState = (cbID & {
+type OrreryStateMember = cbID & {
   bodySpan: number;
   trackPosition: number;
   tokenPosition: number;
-})[];
+};
 
-type OrreryAction = Partial<cbID> & {
+export type OrreryState = OrreryStateMember[];
+
+export type OrreryAction = Partial<cbID> & {
   scope: "track" | "token" | "both";
 } & ({ type: "increment" | "decrement" } | { type: "set"; newValue: number });
 
