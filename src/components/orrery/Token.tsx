@@ -1,5 +1,8 @@
 import { SpanAngle, Radii } from "./orreryTypes";
-import RingSegment, { ringSegmentProps } from "./primatives/RingSegment";
+import RingSegment, {
+  ringSegmentProps,
+  variants as rsVariants,
+} from "./primatives/RingSegment";
 
 export type TokenProps = SpanAngle & {
   radii: Radii;
@@ -21,14 +24,14 @@ export default function Token({
     <g>
       <g transform={`rotate(${spanAngle / 2})`}>
         <RingSegment
-          className="fill-blue-200 transition-opacity opacity-0 hover:opacity-50"
+          className={rsVariants({ color: "tokenSelector" })}
           {...radii}
           spanAngle={180}
           onClick={onCW}
           {...halfProps}
         />
         <RingSegment
-          className="fill-blue-200 transition-opacity opacity-0 hover:opacity-50"
+          className={rsVariants({ color: "tokenSelector" })}
           {...radii}
           spanAngle={-180}
           onClick={onWS}
