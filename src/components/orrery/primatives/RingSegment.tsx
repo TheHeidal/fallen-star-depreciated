@@ -1,6 +1,7 @@
-import { tv, VariantProps } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 import { polarToCartesian } from "../angleMisc";
 import { Radii, SpanAngle } from "../orreryTypes";
+import React from "react";
 
 export const variants = tv({
   variants: {
@@ -14,15 +15,16 @@ export const variants = tv({
       mercury: "fill-violet-600",
       tokenSelector:
         "fill-blue-200 transition-opacity opacity-0 hover:opacity-50",
+      warn: "fill-pink-500",
     },
   },
   defaultVariants: {
-    color: "jupiter",
+    color: "warn",
   },
 });
 
 export interface ringSegmentProps extends SpanAngle, Radii {
-  className: string;
+  className?: string;
 }
 
 export default function RingSegment({
@@ -30,9 +32,11 @@ export default function RingSegment({
   intRadius,
   extRadius,
   className = variants(),
-}: ringSegmentProps) {
+  ...props
+}: ringSegmentProps & React.SVGProps<SVGPathElement>) {
   return (
     <path
+      {...props}
       className={className}
       d={`
       M 0 ${-extRadius}
