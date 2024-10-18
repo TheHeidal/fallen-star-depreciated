@@ -15,7 +15,7 @@ export const variants = tv({
     frequency: {
       line: "",
       dashes: "[stroke-dasharray:2,2]",
-      dots: "[stroke-dasharray:2,2]",
+      dots: "[stroke-dasharray:1px,3px]",
     },
   },
   defaultVariants: {

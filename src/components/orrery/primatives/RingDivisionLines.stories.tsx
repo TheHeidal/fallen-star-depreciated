@@ -62,13 +62,14 @@ export const div_12_solid: Story = {
 export const div_24_dashed: Story = {
   args: {
     divisions: 24,
+    offsetAngle: 7.5,
     className: rdVariants({
       weight: "thin",
       frequency: "dashes",
     }),
   },
 };
-export const div_48_dashed: Story = {
+export const div_48_dotted: Story = {
   args: {
     divisions: 24,
     offsetAngle: 7.5,
