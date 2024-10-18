@@ -1,17 +1,25 @@
-import { useReducer } from "react";
-import CelestialBody, { CBProps } from "./CelestialBody";
-import MonthRing, { MonthRingProps } from "./MonthRing";
-import { OrreryState, reducer } from "./orreryReducer";
+import { motion } from "framer-motion";
 import { cbID, PlanetVariants, Radii } from "./orreryTypes";
+import { OrreryAction, OrreryState } from "./orreryReducer";
+import MonthRing, { MonthRingProps } from "./MonthRing";
 import MoonDisk from "./primatives/MoonDisk";
+import Track, { TrackProps } from "./Track";
+import Token, { TokenProps } from "./Token";
 import Ring from "./primatives/Ring";
 
-interface OrrerySVGProps extends React.SVGProps<SVGSVGElement> {
+export type CBStyle = cbID & {
+  radii: Radii;
+  trackProps: Omit<TrackProps, "radii">;
+  tokenProps: Omit<TokenProps, "radii">;
+};
+
+interface OrrerySVGProps {
+  state: OrreryState;
+  dispatch: React.Dispatch<OrreryAction>;
   cbSpecifications: CelestialBodySpecification[];
-  cbList: Omit<CBProps, "tokenPosition" | "trackPosition">[];
+  cbList: CBStyle[];
   monthProps?: MonthRingProps;
   moveRings?: boolean;
-  miscCelestialBodyProps?: Partial<CBProps>;
 }
 
 interface CelestialBodySpecification {
@@ -28,42 +36,18 @@ interface CelestialBodySpecification {
 }
 
 export default function OrrerySVG({
-  cbList: propCBList,
+  state,
+  dispatch,
+  cbList,
   monthProps,
-  miscCelestialBodyProps,
   moveRings = false,
-  ...restProps
 }: OrrerySVGProps) {
-  const cbList: (cbID & Omit<CBProps, "tokenPosition" | "trackPosition">)[] =
-    propCBList.map((props, index) => {
-      return {
-        id: index,
-        ...props,
-      };
-    });
-  const initialState: OrreryState = cbList.map(
-    ({
-      id,
-      tokenProps,
-      trackInitialPosition = 0,
-      tokenInitialPosition = 0,
-    }) => {
-      return {
-        id: id,
-        bodySpan: tokenProps.spanAngle,
-        trackPosition: trackInitialPosition,
-        tokenPosition: tokenInitialPosition,
-      };
-    }
-  );
-  const [state, dispatch] = useReducer(reducer, initialState);
-
   return (
     <>
       {monthProps && <MonthRing {...monthProps} />}
       <g
         onClick={() => {
-          dispatch({ scope: "both", type: "increment" });
+          dispatch({ scope: moveRings ? "both" : "token", type: "increment" });
         }}>
         <g transform="rotate(-25)">
           <g className="group transition-colors">
@@ -82,7 +66,7 @@ export default function OrrerySVG({
         </g>
       </g>
       <g>
-        {cbList.map(({ id, tokenProps, ...cbProps }, index) => {
+        {cbList.map(({ id, tokenProps, trackProps, radii }, index) => {
           const cW = () => {
             dispatch({
               scope: "token",
@@ -93,21 +77,29 @@ export default function OrrerySVG({
           const wS = () => {
             dispatch({ scope: "token", type: "decrement", id: id });
           };
+          const transition = {
+            type: "spring",
+            bounce: 0.15,
+            duration: 3,
+          };
           return (
             <g key={index}>
-              <CelestialBody
-                {...miscCelestialBodyProps}
-                trackInitialPosition={initialState[index].trackPosition}
-                trackPosition={
-                  moveRings
-                    ? state[index].trackPosition
-                    : initialState[index].trackPosition
-                }
-                tokenInitialPosition={initialState[index].tokenPosition}
-                tokenPosition={state[index].tokenPosition}
-                tokenProps={{ onCW: cW, onWS: wS, ...tokenProps }}
-                {...cbProps}
-              />
+              <motion.g
+                initial={false}
+                animate={{ rotate: state[index].trackPosition }}
+                transition={transition}>
+                <Track radii={radii} {...trackProps} />
+              </motion.g>
+              <motion.g
+                initial={false}
+                animate={{ rotate: state[index].tokenPosition }}
+                transition={{
+                  type: "spring",
+                  bounce: 0.15,
+                  duration: 3,
+                }}>
+                <Token radii={radii} onCW={cW} onWS={wS} {...tokenProps} />
+              </motion.g>
             </g>
           );
         })}

@@ -5,7 +5,7 @@ import { DivisionsData } from "./primatives/RingDivisionLines.stories";
 import { TokenProps } from "./Token";
 import { TrackProps } from "./Track";
 
-const INITIAL_STATE_DATA: OrreryState = [
+export const INITIAL_STATE_DATA: OrreryState = [
   { id: "saturn", bodySpan: 10, trackPosition: 0, tokenPosition: -5 },
   { id: "jupiter", bodySpan: 22.5, trackPosition: 0, tokenPosition: 0 },
   { id: "mars", bodySpan: 45, trackPosition: 0, tokenPosition: 0 },
