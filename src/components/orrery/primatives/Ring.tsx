@@ -17,7 +17,7 @@ export const variants = tv({
   },
 });
 
-export type ringProps = { className: string } & Radii;
+export type ringProps = { className?: string } & Radii;
 
 export default function Ring({
   extRadius,

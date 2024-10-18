@@ -7,21 +7,17 @@ import RingDivisionLines, {
 export type TrackProps = React.SVGProps<SVGPathElement> & {
   radii: Radii;
   ringProps?: Omit<ringProps, keyof Radii>;
-  divisions?: Omit<ringDivisionLineProps, keyof Radii>[];
+  divisionPropsList?: Omit<ringDivisionLineProps, keyof Radii>[];
 };
 
-export default function Track(props: TrackProps) {
+export default function Track({ radii, ringProps, ...props }: TrackProps) {
   return (
     <g>
-      <Ring {...props.radii} {...props.ringProps} />
-      {props.divisions &&
-        props.divisions.map((divisionProps, index) => {
+      <Ring {...radii} {...ringProps} />
+      {props.divisionPropsList &&
+        props.divisionPropsList.map((divisionProps, index) => {
           return (
-            <RingDivisionLines
-              key={index}
-              {...props.radii}
-              {...divisionProps}
-            />
+            <RingDivisionLines key={index} {...radii} {...divisionProps} />
           );
         })}
     </g>

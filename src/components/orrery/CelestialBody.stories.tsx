@@ -89,8 +89,11 @@ export const Mars: Story = {
   args: {
     radii: { extRadius: 70, intRadius: 55 },
     trackProps: {
-      ringClassName: { className: "fill-red-300" },
-      divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
+      ringProps: { className: "fill-red-300" },
+      divisionPropsList: [
+        DivisionsData.div_12_solid,
+        DivisionsData.div_24_dashed,
+      ],
     },
     tokenProps: {
       pieceProps: { className: "fill-red-500" },
@@ -102,8 +105,11 @@ export const Venus: Story = {
   args: {
     radii: { extRadius: 55, intRadius: 40 },
     trackProps: {
-      ringClassName: { className: "fill-green-200" },
-      divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
+      ringProps: { className: "fill-green-200" },
+      divisionPropsList: [
+        DivisionsData.div_12_solid,
+        DivisionsData.div_24_dashed,
+      ],
     },
     tokenProps: {
       pieceProps: { className: "fill-green-600" },
@@ -115,8 +121,11 @@ export const Mercury: Story = {
   args: {
     radii: { extRadius: 40, intRadius: 25 },
     trackProps: {
-      ringClassName: { className: "fill-violet-200" },
-      divisions: [DivisionsData.div_12_solid, DivisionsData.div_24_dashed],
+      ringProps: { className: "fill-violet-200" },
+      divisionPropsList: [
+        DivisionsData.div_12_solid,
+        DivisionsData.div_24_dashed,
+      ],
     },
     tokenProps: {
       pieceProps: { className: "fill-violet-500" },

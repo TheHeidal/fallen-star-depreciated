@@ -19,18 +19,18 @@ const meta: Meta<typeof Ring> = {
 export default meta;
 type Story = StoryObj<typeof Ring>;
 
-export const Saturn: Story = {
-  args: {
-    className: ringVariants({ color: "saturn" }),
-    extRadius: 100,
-    intRadius: 85,
-  },
-};
 export const Jupiter: Story = {
   args: {
     className: ringVariants({ color: "jupiter" }),
     extRadius: 85,
     intRadius: 70,
+  },
+};
+export const Mars: Story = {
+  args: {
+    className: ringVariants({ color: "mars" }),
+    extRadius: 100,
+    intRadius: 85,
   },
 };
 // export const Mars = {
