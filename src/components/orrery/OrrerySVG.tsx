@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { cbID, Radii, StyleMap, TokenProps, TrackProps } from "./orreryTypes";
-import { OrreryAction, OrreryState } from "./orreryReducer";
+import { OrreryAction, OrreryState } from "./orreryLogic";
 import MonthRing, { MonthRingProps } from "./MonthRing";
 import MoonDisk from "./primatives/MoonDisk";
 import Ring from "./primatives/Ring";

@@ -1,4 +1,4 @@
-import { OrreryState } from "./orreryReducer";
+import { OrreryState } from "./orreryLogic";
 import { CBStyle } from "./OrrerySVG";
 import { StyleMap } from "./orreryTypes";
 import { DivisionsData } from "./primatives/RingDivisionLines.stories";
