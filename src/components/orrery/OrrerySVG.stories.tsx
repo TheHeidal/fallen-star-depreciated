@@ -30,13 +30,32 @@ export const Default: Story = {};
 export const RotatingRings: Story = { args: { moveRings: true } };
 export const ThinRings: Story = {
   args: {
-    cbList: [
-      { ...data.CBData.saturn, radii: { extRadius: 100, intRadius: 88 } },
-      { ...data.CBData.jupiter, radii: { extRadius: 85, intRadius: 73 } },
-      { ...data.CBData.mars, radii: { extRadius: 70, intRadius: 58 } },
-      { ...data.CBData.venus, radii: { extRadius: 55, intRadius: 43 } },
-      { ...data.CBData.mercury, radii: { extRadius: 40, intRadius: 28 } },
-    ],
+    styles: {
+      sun: {
+        ...data.STYLE_DATA.saturn,
+        radii: { extRadius: 100, intRadius: 88 },
+      },
+      saturn: {
+        ...data.STYLE_DATA.saturn,
+        radii: { extRadius: 100, intRadius: 88 },
+      },
+      jupiter: {
+        ...data.STYLE_DATA.jupiter,
+        radii: { extRadius: 85, intRadius: 73 },
+      },
+      mars: {
+        ...data.STYLE_DATA.mars,
+        radii: { extRadius: 70, intRadius: 58 },
+      },
+      venus: {
+        ...data.STYLE_DATA.venus,
+        radii: { extRadius: 55, intRadius: 43 },
+      },
+      mercury: {
+        ...data.STYLE_DATA.mercury,
+        radii: { extRadius: 40, intRadius: 28 },
+      },
+    },
 
     moveRings: true,
   },

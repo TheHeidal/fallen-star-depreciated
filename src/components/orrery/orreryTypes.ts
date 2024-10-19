@@ -40,6 +40,7 @@ export interface CelestialBodyStyle
     Omit<TokenProps, "spanAngle"> {}
 
 export type StyleMap = {
+  sun: CelestialBodyStyle;
   saturn: CelestialBodyStyle;
   jupiter: CelestialBodyStyle;
   mars: CelestialBodyStyle;
