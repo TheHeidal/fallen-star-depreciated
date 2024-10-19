@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import MonthRing from "./MonthRing";
-import { MONTHS } from "./Constants";
+import { MONTHS } from "./data";
 
 const meta = {
   component: MonthRing,

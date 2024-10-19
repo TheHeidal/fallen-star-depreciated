@@ -1,14 +1,6 @@
-import { Radii } from "./orreryTypes";
-import Ring, { ringProps } from "./primatives/Ring";
-import RingDivisionLines, {
-  ringDivisionLineProps,
-} from "./primatives/RingDivisionLines";
-
-export type TrackProps = {
-  radii: Radii;
-  ringProps?: Omit<ringProps, keyof Radii>;
-  divisionPropsList?: Omit<ringDivisionLineProps, keyof Radii>[];
-};
+import { TrackProps } from "./orreryTypes";
+import Ring from "./primatives/Ring";
+import RingDivisionLines from "./primatives/RingDivisionLines";
 
 export default function Track({
   radii,

@@ -1,6 +1,6 @@
 import { tv } from "tailwind-variants";
 import { polarToCartesian } from "../angleMisc";
-import { Radii, SpanAngle } from "../orreryTypes";
+import { ringSegmentProps } from "../orreryTypes";
 import React from "react";
 
 export const variants = tv({
@@ -22,10 +22,6 @@ export const variants = tv({
     color: "warn",
   },
 });
-
-export interface ringSegmentProps extends SpanAngle, Radii {
-  className?: string;
-}
 
 export default function RingSegment({
   spanAngle,

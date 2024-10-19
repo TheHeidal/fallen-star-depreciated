@@ -1,10 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
 import OrrerySVG from "./OrrerySVG";
 import * as data from "./data";
+import { MONTHS } from "./data";
 
 const meta: Meta<typeof OrrerySVG> = {
   component: OrrerySVG,
-  title: "Orrery SVG",
+  title: "Orrery/Orrery (Visual)",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
   decorators: [
@@ -17,22 +18,15 @@ const meta: Meta<typeof OrrerySVG> = {
   args: {
     state: data.INITIAL_STATE_DATA,
     dispatch: () => {},
-    cbList: [
-      data.CBData.saturn,
-      data.CBData.jupiter,
-      data.CBData.mars,
-      data.CBData.venus,
-      data.CBData.mercury,
-    ],
+    styles: data.STYLE_DATA,
+    monthProps: { radii: { intRadius: 100, extRadius: 130 }, months: MONTHS },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof OrrerySVG>;
 
-export const Default: Story = {
-  args: { monthProps: { radii: { intRadius: 100, extRadius: 130 } } },
-};
+export const Default: Story = {};
 export const RotatingRings: Story = { args: { moveRings: true } };
 export const ThinRings: Story = {
   args: {
@@ -47,79 +41,3 @@ export const ThinRings: Story = {
     moveRings: true,
   },
 };
-
-export const Jupiter: Story = {
-  args: {
-    cbList: [data.CBData.jupiter],
-  },
-};
-
-// export const Rings: Story = {
-//   args: {
-//     childrenList: [
-//       {
-//         id: "Saturn",
-//         ringProps: "fill-slate-700",
-//         tokenClassName: "fill-slate-500",
-//         extRadius: 100,
-//         intRadius: 85,
-//         spanAngle: 360 * (1 / 36),
-//         centerAngle: 0,
-//         divisionParams: [RingStories.DivisionData.div_36_solid],
-//       },
-//       {
-//         id: "Jupiter",
-//         ringProps: "fill-orange-300",
-//         tokenClassName: "fill-amber-600",
-//         extRadius: 85,
-//         intRadius: 70,
-//         spanAngle: 360 * (3 / 48),
-//         centerAngle: 360 * (1.5 / 48),
-//         divisionParams: [
-//           RingStories.DivisionData.div_12_solid,
-//           RingStories.DivisionData.div_24_dashed,
-//           RingStories.DivisionData.div_48_dashed,
-//         ],
-//       },
-//       {
-//         id: "Mars",
-//         ringProps: "fill-red-300",
-//         tokenClassName: "fill-red-500",
-//         extRadius: 70,
-//         intRadius: 55,
-//         spanAngle: 360 * (3 / 24),
-//         centerAngle: 360 * (1.5 / 24),
-//         divisionParams: [
-//           RingStories.DivisionData.div_12_solid,
-//           RingStories.DivisionData.div_24_dashed,
-//         ],
-//       },
-//       {
-//         id: "Venus",
-//         ringProps: "fill-green-200",
-//         tokenClassName: "fill-green-600",
-//         extRadius: 55,
-//         intRadius: 40,
-//         spanAngle: 360 * (5 / 24),
-//         centerAngle: 360 * (2.5 / 24),
-//         divisionParams: [
-//           RingStories.DivisionData.div_12_solid,
-//           RingStories.DivisionData.div_24_dashed,
-//         ],
-//       },
-//       {
-//         id: "Mercury",
-//         ringProps: "fill-violet-200",
-//         tokenClassName: "fill-violet-500",
-//         extRadius: 40,
-//         intRadius: 25,
-//         spanAngle: 360 * (7 / 24),
-//         centerAngle: 360 * (3.5 / 24),
-//         divisionParams: [
-//           RingStories.DivisionData.div_12_solid,
-//           RingStories.DivisionData.div_24_dashed,
-//         ],
-//       },
-//     ],
-//   },
-// };

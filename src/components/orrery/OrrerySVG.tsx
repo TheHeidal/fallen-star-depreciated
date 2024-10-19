@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { cbID, PlanetVariants, Radii } from "./orreryTypes";
+import { cbID, Radii, StyleMap, TokenProps, TrackProps } from "./orreryTypes";
 import { OrreryAction, OrreryState } from "./orreryReducer";
 import MonthRing, { MonthRingProps } from "./MonthRing";
 import MoonDisk from "./primatives/MoonDisk";
-import Track, { TrackProps } from "./Track";
-import Token, { TokenProps } from "./Token";
 import Ring from "./primatives/Ring";
+import Track from "./Track";
+import Token from "./Token";
 
 export type CBStyle = cbID & {
   radii: Radii;
@@ -16,29 +16,16 @@ export type CBStyle = cbID & {
 interface OrrerySVGProps {
   state: OrreryState;
   dispatch: React.Dispatch<OrreryAction>;
-  cbSpecifications: CelestialBodySpecification[];
   cbList: CBStyle[];
+  styles: StyleMap;
   monthProps?: MonthRingProps;
   moveRings?: boolean;
-}
-
-interface CelestialBodySpecification {
-  radii: Radii;
-  divisions: number;
-  divisonOffset?: number;
-  tokenSpanAngle: number;
-  tokeninitialAngle?: number;
-  variants: {
-    ring?: PlanetVariants;
-    divisions?: string;
-    token?: PlanetVariants;
-  };
 }
 
 export default function OrrerySVG({
   state,
   dispatch,
-  cbList,
+  styles,
   monthProps,
   moveRings = false,
 }: OrrerySVGProps) {
@@ -66,13 +53,9 @@ export default function OrrerySVG({
         </g>
       </g>
       <g>
-        {cbList.map(({ id, tokenProps, trackProps, radii }, index) => {
+        {state.map(({ id, bodySpan, trackPosition, tokenPosition }, index) => {
           const cW = () => {
-            dispatch({
-              scope: "token",
-              type: "increment",
-              id: id,
-            });
+            dispatch({ scope: "token", type: "increment", id: id });
           };
           const wS = () => {
             dispatch({ scope: "token", type: "decrement", id: id });
@@ -86,19 +69,24 @@ export default function OrrerySVG({
             <g key={index}>
               <motion.g
                 initial={false}
-                animate={{ rotate: state[index].trackPosition }}
+                animate={{ rotate: trackPosition }}
                 transition={transition}>
-                <Track radii={radii} {...trackProps} />
+                <Track {...styles[id]} />
               </motion.g>
               <motion.g
                 initial={false}
-                animate={{ rotate: state[index].tokenPosition }}
+                animate={{ rotate: tokenPosition }}
                 transition={{
                   type: "spring",
                   bounce: 0.15,
                   duration: 3,
                 }}>
-                <Token radii={radii} onCW={cW} onWS={wS} {...tokenProps} />
+                <Token
+                  onCW={cW}
+                  onWS={wS}
+                  spanAngle={bodySpan}
+                  {...styles[id]}
+                />
               </motion.g>
             </g>
           );

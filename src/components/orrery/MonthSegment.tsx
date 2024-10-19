@@ -1,5 +1,6 @@
 import { Radii, SpanAngle } from "./orreryTypes";
-import RingSegment, { ringSegmentProps } from "./primatives/RingSegment";
+import RingSegment from "./primatives/RingSegment";
+import { ringSegmentProps } from "./orreryTypes";
 import CircularText, { CircularTextProps } from "./primatives/CircularText";
 import { v4 as uuidv4 } from "uuid";
 

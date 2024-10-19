@@ -1,9 +1,7 @@
 import MonthSegment, { MonthContent } from "./MonthSegment";
-import { Radii } from "./orreryTypes";
-import Ring, { ringProps } from "./primatives/Ring";
-import RingDivisionLines, {
-  ringDivisionLineProps,
-} from "./primatives/RingDivisionLines";
+import { Radii, ringDivisionLineProps, ringProps } from "./orreryTypes";
+import Ring from "./primatives/Ring";
+import RingDivisionLines from "./primatives/RingDivisionLines";
 import RingSegment from "./primatives/RingSegment";
 import { v4 as uuidv4 } from "uuid";
 

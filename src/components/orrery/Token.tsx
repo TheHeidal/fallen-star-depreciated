@@ -1,16 +1,5 @@
-import { SpanAngle, Radii } from "./orreryTypes";
-import RingSegment, {
-  ringSegmentProps,
-  variants as rsVariants,
-} from "./primatives/RingSegment";
-
-export type TokenProps = SpanAngle & {
-  radii: Radii;
-  onCW?: () => void;
-  onWS?: () => void;
-  halfProps?: Omit<ringSegmentProps, keyof Radii | keyof SpanAngle>;
-  pieceProps?: Omit<ringSegmentProps, keyof Radii | keyof SpanAngle>;
-};
+import { TokenProps } from "./orreryTypes";
+import RingSegment, { variants as rsVariants } from "./primatives/RingSegment";
 
 export default function Token({
   radii,

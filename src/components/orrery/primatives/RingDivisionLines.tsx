@@ -1,6 +1,6 @@
 import { tv } from "tailwind-variants";
 import { polarToCartesian } from "../angleMisc";
-import { Radii } from "../orreryTypes";
+import { ringDivisionLineProps } from "../orreryTypes";
 
 export const variants = tv({
   variants: {
@@ -24,12 +24,6 @@ export const variants = tv({
     frequency: "line",
   },
 });
-
-export interface ringDivisionLineProps extends Radii {
-  divisions: number;
-  offsetAngle?: number;
-  className?: string;
-}
 
 export default function RingDivisionLines({
   extRadius,

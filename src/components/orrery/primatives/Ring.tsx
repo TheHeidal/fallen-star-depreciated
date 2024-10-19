@@ -1,5 +1,5 @@
 import { tv } from "tailwind-variants";
-import { Radii } from "../orreryTypes";
+import { ringProps } from "../orreryTypes";
 
 export const variants = tv({
   variants: {
@@ -16,8 +16,6 @@ export const variants = tv({
     color: "white",
   },
 });
-
-export type ringProps = { className?: string } & Radii;
 
 export default function Ring({
   extRadius,
