@@ -1,7 +1,7 @@
 import { OrreryState } from "./orreryLogic";
 import { CBStyle } from "./OrrerySVG";
 import { StyleMap } from "./orreryTypes";
-import { DivisionsData } from "./primatives/RingDivisionLines.stories";
+import { DivisionsData } from "./primitives/RingDivisionLines.stories";
 
 export const INITIAL_STATE_DATA: OrreryState = [
   { id: "saturn", bodySpan: 10, trackPosition: 0, tokenPosition: -5 },

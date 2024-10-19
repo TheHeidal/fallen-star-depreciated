@@ -1,6 +1,6 @@
 import { TrackProps } from "./orreryTypes";
-import Ring from "./primatives/Ring";
-import RingDivisionLines from "./primatives/RingDivisionLines";
+import Ring from "./primitives/Ring";
+import RingDivisionLines from "./primitives/RingDivisionLines";
 
 export default function Track({
   radii,

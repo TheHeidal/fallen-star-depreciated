@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { DivisionsData } from "./primatives/RingDivisionLines.stories";
+import { DivisionsData } from "./primitives/RingDivisionLines.stories";
 import Track from "./Track";
 import { STYLE_DATA } from "./data";
 

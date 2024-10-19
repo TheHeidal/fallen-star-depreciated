@@ -1,5 +1,5 @@
 import { TokenProps } from "./orreryTypes";
-import RingSegment, { variants as rsVariants } from "./primatives/RingSegment";
+import RingSegment, { variants as rsVariants } from "./primitives/RingSegment";
 
 export default function Token({
   radii,

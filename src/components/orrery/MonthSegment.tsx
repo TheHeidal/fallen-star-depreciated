@@ -1,7 +1,7 @@
 import { Radii, SpanAngle } from "./orreryTypes";
-import RingSegment from "./primatives/RingSegment";
+import RingSegment from "./primitives/RingSegment";
 import { ringSegmentProps } from "./orreryTypes";
-import CircularText, { CircularTextProps } from "./primatives/CircularText";
+import CircularText, { CircularTextProps } from "./primitives/CircularText";
 import { v4 as uuidv4 } from "uuid";
 
 export type MonthContent = {
