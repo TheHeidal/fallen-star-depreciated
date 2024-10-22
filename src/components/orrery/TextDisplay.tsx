@@ -1,4 +1,5 @@
-import { OrreryAction, OrreryState } from "./orreryLogic";
+import { HOUSES } from "./data";
+import { inHouse, OrreryAction, OrreryState } from "./orreryLogic";
 import { v4 as uuidv4 } from "uuid";
 
 export default function TextDisplay({
@@ -11,11 +12,14 @@ export default function TextDisplay({
   return (
     <>
       <ol>
-        {state.map(({ id, bodySpan, trackPosition, tokenPosition }) => {
+        {state.map(({ id, tokenPosition, bodySpan }) => {
+          const houses = HOUSES.filter((val, index) => {
+            return inHouse(tokenPosition, bodySpan, index);
+          });
           return (
             <li key={uuidv4()}>{`${id} extends from ${tokenPosition % 360} to ${
               (tokenPosition + bodySpan) % 360
-            }`}</li>
+            }, within ${houses}`}</li>
           );
         })}
       </ol>

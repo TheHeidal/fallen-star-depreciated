@@ -1,3 +1,5 @@
+import React from "react";
+
 export type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 export type Radii = {
@@ -37,7 +39,9 @@ export type TokenProps = SpanAngle & {
 
 export interface CelestialBodyStyle
   extends TrackProps,
-    Omit<TokenProps, "spanAngle"> {}
+    Omit<TokenProps, "spanAngle"> {
+  textDisplay: React.ReactNode;
+}
 
 export type StyleMap = {
   sun: CelestialBodyStyle;
