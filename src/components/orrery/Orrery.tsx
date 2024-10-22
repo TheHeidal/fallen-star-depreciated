@@ -1,4 +1,4 @@
-import { OrrerySVG } from "./OrrerySVG";
+import { OrrerySVG } from "./VisualDisplay";
 import Ring from "./primitives/Ring";
 
 export default function Orrery() {

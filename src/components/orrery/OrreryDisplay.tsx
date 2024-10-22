@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import { reducer } from "./orreryLogic";
-import OrrerySVG from "./OrrerySVG";
+import OrrerySVG from "./VisualDisplay";
 import TextDisplay from "./TextDisplay";
 import { INITIAL_STATE_DATA } from "./data";
 

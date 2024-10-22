@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import OrrerySVG from "./OrrerySVG";
+import OrrerySVG from "./VisualDisplay";
 import * as data from "./data";
 import { MONTHS } from "./data";
 
