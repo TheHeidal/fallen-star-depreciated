@@ -2,10 +2,10 @@ import { TokenProps } from "./orreryTypes";
 import RingSegment, { variants as rsVariants } from "./primitives/RingSegment";
 
 export default function Token({
+  id,
   radii,
   spanAngle,
-  onCW = () => {},
-  onWS = () => {},
+  dispatch = () => {},
   halfProps,
   pieceProps,
 }: TokenProps) {
@@ -16,14 +16,18 @@ export default function Token({
           className={rsVariants({ color: "tokenSelector" })}
           {...radii}
           spanAngle={180}
-          onClick={onCW}
+          onClick={() => {
+            dispatch({ scope: "token", type: "increment", id: id });
+          }}
           {...halfProps}
         />
         <RingSegment
           className={rsVariants({ color: "tokenSelector" })}
           {...radii}
           spanAngle={-180}
-          onClick={onWS}
+          onClick={() => {
+            dispatch({ scope: "token", type: "decrement", id: id });
+          }}
           {...halfProps}
         />
       </g>

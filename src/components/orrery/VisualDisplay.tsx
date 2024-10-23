@@ -6,6 +6,7 @@ import MoonDisk from "./primitives/MoonDisk";
 import Ring from "./primitives/Ring";
 import Track from "./Track";
 import Token from "./Token";
+import { MONTHS } from "./data";
 
 export type CBStyle = cbID & {
   radii: Radii;
@@ -25,7 +26,10 @@ export default function VisualDisplay({
   state,
   dispatch,
   styles,
-  monthProps,
+  monthProps = {
+    radii: { intRadius: 100, extRadius: 130 },
+    months: MONTHS,
+  },
   moveRings = false,
 }: OrrerySVGProps) {
   return (
@@ -53,12 +57,6 @@ export default function VisualDisplay({
       </g>
       <g>
         {state.map(({ id, bodySpan, trackPosition, tokenPosition }, index) => {
-          const cW = () => {
-            dispatch({ scope: "token", type: "increment", id: id });
-          };
-          const wS = () => {
-            dispatch({ scope: "token", type: "decrement", id: id });
-          };
           const transition = {
             type: "spring",
             bounce: 0.15,
@@ -77,8 +75,8 @@ export default function VisualDisplay({
                 animate={{ rotate: tokenPosition }}
                 transition={transition}>
                 <Token
-                  onCW={cW}
-                  onWS={wS}
+                  id={id}
+                  dispatch={dispatch}
                   spanAngle={bodySpan}
                   {...styles[id]}
                 />

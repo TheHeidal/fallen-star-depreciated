@@ -1,4 +1,5 @@
-import React, { SVGProps } from "react";
+import React, { Dispatch, SVGProps } from "react";
+import { OrreryAction } from "./orreryLogic";
 
 export type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
@@ -30,17 +31,17 @@ export type TrackProps = {
   divisionPropsList?: Omit<ringDivisionLineProps, keyof Radii>[];
 };
 
-export type TokenProps = SpanAngle & {
-  radii: Radii;
-  onCW?: () => void;
-  onWS?: () => void;
-  halfProps?: Omit<ringSegmentProps, keyof Radii | keyof SpanAngle>;
-  pieceProps?: Omit<ringSegmentProps, keyof Radii | keyof SpanAngle>;
-};
+export type TokenProps = cbID &
+  SpanAngle & {
+    radii: Radii;
+    dispatch: React.Dispatch<OrreryAction>;
+    halfProps?: Omit<ringSegmentProps, keyof Radii | keyof SpanAngle>;
+    pieceProps?: Omit<ringSegmentProps, keyof Radii | keyof SpanAngle>;
+  };
 
 export interface CelestialBodyStyle
   extends TrackProps,
-    Omit<TokenProps, "spanAngle"> {
+    Omit<TokenProps, "spanAngle" | "id" | "dispatch"> {
   textDisplay: React.ReactNode;
 }
 

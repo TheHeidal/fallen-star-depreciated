@@ -1,17 +1,5 @@
 import { cbID } from "./orreryTypes";
 
-type OrreryStateMember = cbID & {
-  bodySpan: number;
-  trackPosition: number;
-  tokenPosition: number;
-};
-
-export type OrreryState = OrreryStateMember[];
-
-export type OrreryAction = Partial<cbID> & {
-  scope: "track" | "token" | "both";
-} & ({ type: "increment" | "decrement" } | { type: "set"; newValue: number });
-
 export function inHouse(
   tokenPosition: number,
   bodySpan: number,
@@ -35,6 +23,18 @@ export function inHouse(
     (tokenEdgeWS < houseEdgeWS && houseEdgeCW < tokenEdgeCW)
   );
 }
+
+type OrreryStateMember = cbID & {
+  bodySpan: number;
+  trackPosition: number;
+  tokenPosition: number;
+};
+
+export type OrreryState = OrreryStateMember[];
+
+export type OrreryAction = Partial<cbID> & {
+  scope: "track" | "token" | "both";
+} & ({ type: "increment" | "decrement" } | { type: "set"; newValue: number });
 
 export function reducer(state: OrreryState, action: OrreryAction) {
   function byType(span: number, prev: number, action: OrreryAction) {
