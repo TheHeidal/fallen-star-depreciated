@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SVGProps } from "react";
 
 export type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
@@ -11,11 +11,12 @@ export type SpanAngle = {
   spanAngle: number;
 };
 
-export type ringProps = { className?: string } & Radii;
+export interface ringProps extends Radii, Omit<SVGProps<SVGPathElement>, "d"> {}
 
-export interface ringSegmentProps extends SpanAngle, Radii {
-  className?: string;
-}
+export interface ringSegmentProps
+  extends SpanAngle,
+    Radii,
+    Omit<SVGProps<SVGPathElement>, "d"> {}
 
 export interface ringDivisionLineProps extends Radii {
   divisions: number;

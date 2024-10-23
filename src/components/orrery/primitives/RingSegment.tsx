@@ -1,7 +1,6 @@
 import { tv } from "tailwind-variants";
 import { polarToCartesian } from "../angleMisc";
 import { ringSegmentProps } from "../orreryTypes";
-import React from "react";
 
 export const variants = tv({
   variants: {
@@ -27,13 +26,11 @@ export default function RingSegment({
   spanAngle,
   intRadius,
   extRadius,
-  className = variants(),
-  ...props
-}: ringSegmentProps & React.SVGProps<SVGPathElement>) {
+  ...rest
+}: ringSegmentProps) {
   return (
     <path
-      {...props}
-      className={className}
+      {...rest}
       d={`
       M 0 ${-extRadius}
       A ${extRadius} ${extRadius}

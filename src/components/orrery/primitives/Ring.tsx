@@ -17,14 +17,10 @@ export const variants = tv({
   },
 });
 
-export default function Ring({
-  extRadius,
-  intRadius,
-  className = variants(),
-}: ringProps) {
+export default function Ring({ extRadius, intRadius, ...rest }: ringProps) {
   return (
     <path
-      className={className}
+      {...rest}
       d={`
     M 0 ${extRadius}
     A 1 1 0 1 0 0 ${-extRadius}
