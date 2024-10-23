@@ -16,13 +16,12 @@ export type CBStyle = cbID & {
 interface OrrerySVGProps {
   state: OrreryState;
   dispatch: React.Dispatch<OrreryAction>;
-  cbList: CBStyle[];
   styles: StyleMap;
   monthProps?: MonthRingProps;
   moveRings?: boolean;
 }
 
-export default function OrrerySVG({
+export default function VisualDisplay({
   state,
   dispatch,
   styles,
@@ -63,7 +62,7 @@ export default function OrrerySVG({
           const transition = {
             type: "spring",
             bounce: 0.15,
-            duration: 3,
+            duration: 2,
           };
           return (
             <g key={index}>
@@ -76,11 +75,7 @@ export default function OrrerySVG({
               <motion.g
                 initial={false}
                 animate={{ rotate: tokenPosition }}
-                transition={{
-                  type: "spring",
-                  bounce: 0.15,
-                  duration: 3,
-                }}>
+                transition={transition}>
                 <Token
                   onCW={cW}
                   onWS={wS}

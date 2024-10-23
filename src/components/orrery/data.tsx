@@ -11,12 +11,20 @@ export const INITIAL_STATE_DATA: OrreryState = [
   { id: "mercury", bodySpan: 105, trackPosition: 0, tokenPosition: 0 },
 ];
 
+export const PLANET_NAMES = {
+  sun: "The Sun",
+  saturn: "Saturn",
+  jupiter: "Jupiter",
+  mars: "Mars",
+  venus: "Venus",
+  mercury: "Mercury",
+};
+
 export const STYLE_DATA: StyleMap = {
   sun: {
     textDisplay: <span>The Sun</span>,
     radii: { extRadius: 145, intRadius: 135 },
     ringProps: { className: "fill-red-600" },
-    divisionPropsList: [DivisionsData.div_12_solid],
     pieceProps: { className: "fill-yellow-400 stroke-red-600 stroke-1" },
   },
   saturn: {
@@ -87,3 +95,8 @@ export const HOUSES = [
 export const MONTHS = HOUSES.map((str) => {
   return [{ ratio: 0.6, content: str }];
 });
+
+export const MONTH_PROPS = {
+  radii: { intRadius: 100, extRadius: 130 },
+  months: MONTHS,
+};

@@ -7,7 +7,7 @@ import CharacterSheet from "./components/CharacterSheet";
 import Root from "./components/root";
 import Wizard from "./components/Wizard";
 import Codex from "./components/Codex";
-import Orrery from "./components/Orrery";
+import Orrery from "./components/orrery/Orrery";
 
 const router = createBrowserRouter([
   {

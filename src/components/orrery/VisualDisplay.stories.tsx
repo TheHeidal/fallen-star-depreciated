@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
-import OrrerySVG from "./VisualDisplay";
+import VisualDisplay from "./VisualDisplay";
 import * as data from "./data";
 import { MONTHS } from "./data";
 
-const meta: Meta<typeof OrrerySVG> = {
-  component: OrrerySVG,
+const meta: Meta<typeof VisualDisplay> = {
+  component: VisualDisplay,
   title: "Orrery/Orrery (Visual)",
   tags: ["autodocs"],
   excludeStories: /.*Data$/,
@@ -24,7 +24,7 @@ const meta: Meta<typeof OrrerySVG> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof OrrerySVG>;
+type Story = StoryObj<typeof VisualDisplay>;
 
 export const Default: Story = {};
 export const RotatingRings: Story = { args: { moveRings: true } };
